@@ -1,0 +1,7 @@
+.webpack {
+  width: 200px;
+  height: 120px;
+  background-image: url(./assets/develop2.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
