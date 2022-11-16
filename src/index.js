@@ -1,13 +1,13 @@
 import './style.css';
 
 const a = {
-  a: "sdfsdf",
-  b: "sdfdsfsdf",
+  a: 'sdfsdf',
+  b: 'sdfdsfsdf',
 };
 
 const b = {
-  d: "sdafsdf",
+  d: 'sdafsdf',
   c: { ...a },
 };
 
-console.log(b)
+console.log(b);
