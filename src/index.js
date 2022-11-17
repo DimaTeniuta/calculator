@@ -1,5 +1,3 @@
 import './style.css';
 
-const r =  23
-
-
+const r = 23;
