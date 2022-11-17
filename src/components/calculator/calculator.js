@@ -1,5 +1,5 @@
 import { CONSTANTS_MATH_VALUE, DEFAULT_INPUT_VALUE } from '../../utils/variables';
-import { AddCommand, DivideCommand, MultiplyCommand, SubtractCommand } from './mathClasses';
+import { AddCommand, DivideCommand, MultiplyCommand, SignCommand, SubtractCommand } from './mathClasses';
 
 export default class Calculator {
   constructor() {
@@ -60,6 +60,16 @@ export default class Calculator {
     this.left = this.value;
     this.value = DEFAULT_INPUT_VALUE;
     this.isSuccessOperation = true;
+  }
+
+  changeSing() {
+    if (this.right) {
+      this.executeCommand(new SignCommand(+this.right));
+      this.right = this.value;
+      return;
+    }
+    this.executeCommand(new SignCommand(+this.left));
+    this.left = this.value;
   }
 
   calculate() {

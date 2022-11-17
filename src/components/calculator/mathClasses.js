@@ -1,4 +1,4 @@
-import { addFunc, divideFunc, multiplyFunc, subtractFunc } from '../../utils/mathFunctions';
+import { addFunc, changeSign, divideFunc, multiplyFunc, subtractFunc } from '../../utils/mathFunctions';
 
 export class AddCommand {
   constructor(value) {
@@ -37,5 +37,15 @@ export class DivideCommand {
 
   execute(currentValue) {
     return divideFunc(currentValue, this.value);
+  }
+}
+
+export class SignCommand {
+  constructor(value) {
+    this.value = value;
+  }
+
+  execute() {
+    return changeSign(this.value);
   }
 }

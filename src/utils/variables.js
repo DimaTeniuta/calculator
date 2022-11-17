@@ -5,6 +5,7 @@ export const CONSTANTS_DATA_KEY = {
   BACK: 'back',
   COMMA: 'comma',
   AC: 'AC',
+  SIGN: '+/-',
 };
 
 export const CONSTANTS_MATH_VALUE = {

@@ -27,6 +27,8 @@ export class AppController {
         this.reducerComa(element);
       } else if (dataKey === CONSTANTS_DATA_KEY.AC) {
         this.reducerReset();
+      } else if (dataKey === CONSTANTS_DATA_KEY.SIGN) {
+        this.reducerSign();
       }
       this.viewValue();
     }
@@ -64,5 +66,9 @@ export class AppController {
 
   reducerReset() {
     this.calculator.reset();
+  }
+
+  reducerSign() {
+    this.calculator.changeSing();
   }
 }
