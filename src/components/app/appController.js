@@ -14,16 +14,19 @@ export class AppController {
 
   chooseOperation(element) {
     if (element.classList.contains('key')) {
-      if (element.dataset.key === CONSTANTS_DATA_KEY.NUM) {
+      const dataKey = element.dataset.key;
+      if (dataKey === CONSTANTS_DATA_KEY.NUM) {
         this.reducerNum(element);
-      } else if (element.dataset.key === CONSTANTS_DATA_KEY.MATH) {
+      } else if (dataKey === CONSTANTS_DATA_KEY.MATH) {
         this.reducerMath(element);
-      } else if (element.dataset.key === CONSTANTS_DATA_KEY.RESULT) {
+      } else if (dataKey === CONSTANTS_DATA_KEY.RESULT) {
         this.reducerResult();
-      } else if (element.dataset.key === CONSTANTS_DATA_KEY.BACK) {
+      } else if (dataKey === CONSTANTS_DATA_KEY.BACK) {
         this.reducerBack();
-      } else if (element.dataset.key === CONSTANTS_DATA_KEY.COMMA) {
+      } else if (dataKey === CONSTANTS_DATA_KEY.COMMA) {
         this.reducerComa(element);
+      } else if (dataKey === CONSTANTS_DATA_KEY.AC) {
+        this.reducerReset();
       }
       this.viewValue();
     }
@@ -57,5 +60,9 @@ export class AppController {
 
   reducerComa(element) {
     this.calculator.setComma(element.dataset.value);
+  }
+
+  reducerReset() {
+    this.calculator.reset();
   }
 }

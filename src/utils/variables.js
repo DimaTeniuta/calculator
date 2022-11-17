@@ -4,6 +4,7 @@ export const CONSTANTS_DATA_KEY = {
   RESULT: 'result',
   BACK: 'back',
   COMMA: 'comma',
+  AC: 'AC',
 };
 
 export const CONSTANTS_MATH_VALUE = {

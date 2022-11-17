@@ -12,6 +12,11 @@ export default class Calculator {
     this.isFirstInput = true;
   }
 
+  executeCommand(command) {
+    this.value = command.execute(this.value);
+    this.historyValue = this.value;
+  }
+
   toggleIsFirstInput() {
     this.isFirstInput = !this.isFirstInput;
   }
@@ -85,8 +90,13 @@ export default class Calculator {
     this.mathValue = '';
   }
 
-  executeCommand(command) {
-    this.value = command.execute(this.value);
-    this.historyValue = this.value;
+  reset() {
+    this.left = String(DEFAULT_INPUT_VALUE);
+    this.right = '';
+    this.mathValue = '';
+    this.value = DEFAULT_INPUT_VALUE;
+    this.historyValue = '';
+    this.isSuccessOperation = false;
+    this.isFirstInput = true;
   }
 }
