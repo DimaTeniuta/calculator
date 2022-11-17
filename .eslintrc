@@ -1,9 +1,15 @@
 {
   "plugins": ["prettier", "import"],
-  "extends": ["plugin:prettier/recommended", "prettier"],
+  "parser": "@babel/eslint-parser",
+  "extends": ["plugin:prettier/recommended", "prettier", "eslint:recommended"],
   "parserOptions": {
     "ecmaVersion": 2020,
-    "sourceType": "module"
+    "sourceType": "module",
+    "requireConfigFile": false,
+    "babelOptions": {
+      "babelrc": false,
+      "configFile": false
+    }
   },
   "env": {
     "es6": true,

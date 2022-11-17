@@ -38,4 +38,4 @@ export const calculateRoot = (value, n) => {
   }
 };
 
-export const calculateFactorial = (n) => (n ? n * factorial(n - 1) : 1);
+export const calculateFactorial = (n) => (n ? n * calculateFactorial(n - 1) : 1);
