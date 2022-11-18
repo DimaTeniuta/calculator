@@ -90,10 +90,10 @@ export default class Calculator {
       this.isFirstInput = true;
       return;
     }
-    this.value = +this.left;
-    this.executeCommand(new PercentCommand(+this.right));
-    this.saveValues();
-    this.isFirstInput = true;
+    this.executeCommand(new PercentCommand(+this.left, +this.right));
+    this.right = this.value;
+    this.value = this.left;
+    this.calculate();
   }
 
   calculate() {

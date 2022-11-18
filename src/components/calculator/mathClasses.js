@@ -58,12 +58,12 @@ export class SignCommand {
 }
 
 export class PercentCommand {
-  constructor(value) {
-    this.value = value;
+  constructor(left, right) {
+    this.left = left;
+    this.right = right;
   }
 
-  execute(currentValue) {
-    console.log(currentValue, this.value);
-    return calculatePercent(currentValue, this.value);
+  execute() {
+    return calculatePercent(this.left, this.right);
   }
 }
