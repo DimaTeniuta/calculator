@@ -27,7 +27,7 @@ const customMathAbs = (value) => {
 const square = (value, min, max) => {
   let mid = (min + max) / 2;
   let mul = mid * mid;
-  if (mul === value || customMathAbs(mul - value) < 0.00001) {
+  if (mul === value || customMathAbs(mul - value) < 0.000001) {
     return mid;
   } else if (mul < value) {
     return square(value, mid, max);
@@ -49,11 +49,9 @@ export const calculateSquareRoot = (value) => {
   }
 };
 
-export const calculateCubicRoot = (value) => {
-  for (let i = 1; i <= value; i++) {
-    if (i ** 3 === value) return i;
-  }
-};
+export function calculateCubeRoot(value) {
+  return customMathAbs(value) ** (1 / 3);
+}
 
 export const calculateRoot = (value, n) => {
   for (let i = 1; i <= value; i++) {

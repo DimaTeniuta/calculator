@@ -2,6 +2,7 @@ import { COMMA, CONSTANTS_MATH_VALUE, DEFAULT_INPUT_VALUE } from '../../utils/va
 import {
   AddCommand,
   CubeCommand,
+  CubeRootCommand,
   DegreeCommand,
   DivideCommand,
   MultiplyCommand,
@@ -147,6 +148,19 @@ export default class Calculator {
       return;
     }
     this.executeCommand(new SquareRootCommand(+this.left));
+    this.saveValues();
+    this.isFirstInput = true;
+  }
+
+  calculateCubeRoot() {
+    if (this.left && this.right) {
+      this.calculate();
+      this.executeCommand(new CubeRootCommand(+this.left));
+      this.saveValues();
+      this.isFirstInput = true;
+      return;
+    }
+    this.executeCommand(new CubeRootCommand(+this.left));
     this.saveValues();
     this.isFirstInput = true;
   }

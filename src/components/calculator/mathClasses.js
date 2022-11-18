@@ -1,5 +1,6 @@
 import {
   addFunc,
+  calculateCubeRoot,
   calculatePercent,
   calculateSquareRoot,
   changeSign,
@@ -110,5 +111,15 @@ export class SquareRootCommand {
 
   execute() {
     return calculateSquareRoot(this.value);
+  }
+}
+
+export class CubeRootCommand {
+  constructor(value) {
+    this.value = value;
+  }
+
+  execute() {
+    return calculateCubeRoot(this.value);
   }
 }
