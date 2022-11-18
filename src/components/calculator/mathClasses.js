@@ -1,6 +1,7 @@
 import {
   addFunc,
   calculatePercent,
+  calculateSquareRoot,
   changeSign,
   cubingFunc,
   divideFunc,
@@ -99,5 +100,15 @@ export class DegreeCommand {
 
   execute() {
     return exponentiationFunc(this.left, this.right);
+  }
+}
+
+export class SquareRootCommand {
+  constructor(value) {
+    this.value = value;
+  }
+
+  execute() {
+    return calculateSquareRoot(this.value);
   }
 }

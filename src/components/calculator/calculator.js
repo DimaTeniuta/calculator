@@ -8,6 +8,7 @@ import {
   PercentCommand,
   SignCommand,
   SquareCommand,
+  SquareRootCommand,
   SubtractCommand,
 } from './mathClasses';
 
@@ -135,6 +136,19 @@ export default class Calculator {
       return;
     }
     this.mathValue = CONSTANTS_MATH_VALUE.DEGREE;
+  }
+
+  calculateSquareRoot() {
+    if (this.left && this.right) {
+      this.calculate();
+      this.executeCommand(new SquareRootCommand(+this.left));
+      this.saveValues();
+      this.isFirstInput = true;
+      return;
+    }
+    this.executeCommand(new SquareRootCommand(+this.left));
+    this.saveValues();
+    this.isFirstInput = true;
   }
 
   calculate() {
