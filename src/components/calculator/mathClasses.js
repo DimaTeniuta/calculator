@@ -2,6 +2,7 @@ import {
   addFunc,
   calculatePercent,
   changeSign,
+  cubingFunc,
   divideFunc,
   multiplyFunc,
   squaringFunc,
@@ -76,5 +77,15 @@ export class SquareCommand {
 
   execute() {
     return squaringFunc(this.value);
+  }
+}
+
+export class CubeCommand {
+  constructor(value) {
+    this.value = value;
+  }
+
+  execute() {
+    return cubingFunc(this.value);
   }
 }

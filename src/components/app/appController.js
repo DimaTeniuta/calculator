@@ -33,6 +33,8 @@ export class AppController {
         this.reducerPercent();
       } else if (dataKey === CONSTANTS_DATA_KEY.SQUARE) {
         this.reducerSquare();
+      } else if (dataKey === CONSTANTS_DATA_KEY.CUBE) {
+        this.reducerCube();
       }
       this.viewValue();
     }
@@ -82,5 +84,9 @@ export class AppController {
 
   reducerSquare() {
     this.calculator.calculateSquare();
+  }
+
+  reducerCube() {
+    this.calculator.calculateCube();
   }
 }

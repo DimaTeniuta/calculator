@@ -1,6 +1,7 @@
 import { CONSTANTS_MATH_VALUE, DEFAULT_INPUT_VALUE } from '../../utils/variables';
 import {
   AddCommand,
+  CubeCommand,
   DivideCommand,
   MultiplyCommand,
   PercentCommand,
@@ -106,6 +107,19 @@ export default class Calculator {
       return;
     }
     this.executeCommand(new SquareCommand(+this.left));
+    this.saveValues();
+    this.isFirstInput = true;
+  }
+
+  calculateCube() {
+    if (this.left && this.right) {
+      this.calculate();
+      this.executeCommand(new CubeCommand(+this.left));
+      this.saveValues();
+      this.isFirstInput = true;
+      return;
+    }
+    this.executeCommand(new CubeCommand(+this.left));
     this.saveValues();
     this.isFirstInput = true;
   }
