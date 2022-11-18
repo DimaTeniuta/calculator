@@ -6,6 +6,7 @@ export const CONSTANTS_DATA_KEY = {
   COMMA: 'comma',
   AC: 'AC',
   SIGN: '+/-',
+  PERCENT: '%',
 };
 
 export const CONSTANTS_MATH_VALUE = {

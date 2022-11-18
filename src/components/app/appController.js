@@ -29,6 +29,8 @@ export class AppController {
         this.reducerReset();
       } else if (dataKey === CONSTANTS_DATA_KEY.SIGN) {
         this.reducerSign();
+      } else if (dataKey === CONSTANTS_DATA_KEY.PERCENT) {
+        this.reducerPercent();
       }
       this.viewValue();
     }
@@ -70,5 +72,9 @@ export class AppController {
 
   reducerSign() {
     this.calculator.changeSing();
+  }
+
+  reducerPercent() {
+    this.calculator.calculatePercent();
   }
 }

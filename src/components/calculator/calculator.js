@@ -1,5 +1,12 @@
 import { CONSTANTS_MATH_VALUE, DEFAULT_INPUT_VALUE } from '../../utils/variables';
-import { AddCommand, DivideCommand, MultiplyCommand, SignCommand, SubtractCommand } from './mathClasses';
+import {
+  AddCommand,
+  DivideCommand,
+  MultiplyCommand,
+  PercentCommand,
+  SignCommand,
+  SubtractCommand,
+} from './mathClasses';
 
 export default class Calculator {
   constructor() {
@@ -70,6 +77,18 @@ export default class Calculator {
     }
     this.executeCommand(new SignCommand(+this.left));
     this.left = this.value;
+  }
+
+  calculatePercent() {
+    if (!this.right) {
+      this.saveValues();
+      this.isFirstInput = true;
+      return;
+    }
+    this.value = +this.left;
+    this.executeCommand(new PercentCommand(+this.right));
+    this.saveValues();
+    this.isFirstInput = true;
   }
 
   calculate() {

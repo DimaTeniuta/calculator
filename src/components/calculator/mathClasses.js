@@ -1,4 +1,11 @@
-import { addFunc, changeSign, divideFunc, multiplyFunc, subtractFunc } from '../../utils/mathFunctions';
+import {
+  addFunc,
+  calculatePercent,
+  changeSign,
+  divideFunc,
+  multiplyFunc,
+  subtractFunc,
+} from '../../utils/mathFunctions';
 
 export class AddCommand {
   constructor(value) {
@@ -47,5 +54,16 @@ export class SignCommand {
 
   execute() {
     return changeSign(this.value);
+  }
+}
+
+export class PercentCommand {
+  constructor(value) {
+    this.value = value;
+  }
+
+  execute(currentValue) {
+    console.log(currentValue, this.value);
+    return calculatePercent(currentValue, this.value);
   }
 }
