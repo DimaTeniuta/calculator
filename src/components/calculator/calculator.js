@@ -10,6 +10,9 @@ import {
 
 export default class Calculator {
   constructor() {
+    if (Calculator.exists) {
+      return Calculator.context;
+    }
     this.left = String(DEFAULT_INPUT_VALUE);
     this.right = '';
     this.mathValue = '';
@@ -17,6 +20,8 @@ export default class Calculator {
     this.historyValue = '';
     this.isSuccessOperation = false;
     this.isFirstInput = true;
+    Calculator.context = this;
+    Calculator.exists = true;
   }
 
   executeCommand(command) {
@@ -120,11 +125,11 @@ export default class Calculator {
   }
 
   reset() {
+    this.historyValue = this.left;
     this.left = String(DEFAULT_INPUT_VALUE);
     this.right = '';
     this.mathValue = '';
     this.value = DEFAULT_INPUT_VALUE;
-    this.historyValue = '';
     this.isSuccessOperation = false;
     this.isFirstInput = true;
   }
