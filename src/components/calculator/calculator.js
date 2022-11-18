@@ -2,6 +2,7 @@ import { CONSTANTS_MATH_VALUE, DEFAULT_INPUT_VALUE } from '../../utils/variables
 import {
   AddCommand,
   CubeCommand,
+  DegreeCommand,
   DivideCommand,
   MultiplyCommand,
   PercentCommand,
@@ -124,6 +125,16 @@ export default class Calculator {
     this.isFirstInput = true;
   }
 
+  calculateDegree() {
+    if (this.left && this.right && this.mathValue === CONSTANTS_MATH_VALUE.DEGREE) {
+      this.executeCommand(new DegreeCommand(+this.left, +this.right));
+      this.saveValues();
+      this.isFirstInput = true;
+      return;
+    }
+    this.mathValue = CONSTANTS_MATH_VALUE.DEGREE;
+  }
+
   calculate() {
     if (this.mathValue === CONSTANTS_MATH_VALUE.PLUS) {
       this.value = +this.left;
@@ -137,6 +148,9 @@ export default class Calculator {
     } else if (this.mathValue === CONSTANTS_MATH_VALUE.DIVISION) {
       this.value = +this.left;
       this.executeCommand(new DivideCommand(+this.right));
+    } else if (this.mathValue === CONSTANTS_MATH_VALUE.DEGREE) {
+      this.calculateDegree();
+      return;
     }
     this.saveValues();
     this.isFirstInput = true;

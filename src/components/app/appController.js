@@ -35,6 +35,8 @@ export class AppController {
         this.reducerSquare();
       } else if (dataKey === CONSTANTS_DATA_KEY.CUBE) {
         this.reducerCube();
+      } else if (dataKey === CONSTANTS_DATA_KEY.DEGREE) {
+        this.reducerDegree();
       }
       this.viewValue();
     }
@@ -88,5 +90,9 @@ export class AppController {
 
   reducerCube() {
     this.calculator.calculateCube();
+  }
+
+  reducerDegree() {
+    this.calculator.calculateDegree();
   }
 }

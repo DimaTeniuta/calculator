@@ -4,6 +4,7 @@ import {
   changeSign,
   cubingFunc,
   divideFunc,
+  exponentiationFunc,
   multiplyFunc,
   squaringFunc,
   subtractFunc,
@@ -87,5 +88,16 @@ export class CubeCommand {
 
   execute() {
     return cubingFunc(this.value);
+  }
+}
+
+export class DegreeCommand {
+  constructor(left, right) {
+    this.left = left;
+    this.right = right;
+  }
+
+  execute() {
+    return exponentiationFunc(this.left, this.right);
   }
 }

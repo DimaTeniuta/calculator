@@ -17,6 +17,7 @@ export const CONSTANTS_MATH_VALUE = {
   MINUS: '-',
   MULTIPLICATION: '*',
   DIVISION: '/',
+  DEGREE: '&#710;',
 };
 
 export const DEFAULT_INPUT_VALUE = 0;
