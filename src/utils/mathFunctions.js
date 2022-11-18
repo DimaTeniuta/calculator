@@ -1,3 +1,5 @@
+import { COMMA } from './variables';
+
 export const addFunc = (a, b) => a + b;
 
 export const subtractFunc = (a, b) => a - b;
@@ -50,7 +52,19 @@ export const calculateSquareRoot = (value) => {
 };
 
 export function calculateCubeRoot(value) {
-  return customMathAbs(value) ** (1 / 3);
+  let result = customMathAbs(value) ** (1 / 3);
+  if (String(result).includes(COMMA)) {
+    const arr = String(result).split('.');
+    if (
+      arr[1]
+        .split('')
+        .slice(0, -9)
+        .every((el) => el === '9')
+    ) {
+      result = +arr[0] + 1;
+    }
+  }
+  return result;
 }
 
 export const calculateRoot = (value, n) => {
