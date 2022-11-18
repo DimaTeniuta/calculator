@@ -1,4 +1,4 @@
-import { CONSTANTS_MATH_VALUE, DEFAULT_INPUT_VALUE } from '../../utils/variables';
+import { COMMA, CONSTANTS_MATH_VALUE, DEFAULT_INPUT_VALUE } from '../../utils/variables';
 import {
   AddCommand,
   CubeCommand,
@@ -54,6 +54,7 @@ export default class Calculator {
 
   setComma(value) {
     if (!this.mathValue) {
+      if (this.left.includes(COMMA)) return;
       if (this.isFirstInput) {
         this.isFirstInput = false;
         this.left = DEFAULT_INPUT_VALUE + value;
@@ -61,6 +62,7 @@ export default class Calculator {
         this.left += value;
       }
     } else {
+      if (this.right.includes(COMMA)) return;
       this.right += this.right ? value : DEFAULT_INPUT_VALUE + value;
     }
   }

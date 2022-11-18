@@ -21,3 +21,5 @@ export const CONSTANTS_MATH_VALUE = {
 };
 
 export const DEFAULT_INPUT_VALUE = 0;
+
+export const COMMA = '.';
