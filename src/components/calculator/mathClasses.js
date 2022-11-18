@@ -4,6 +4,7 @@ import {
   changeSign,
   divideFunc,
   multiplyFunc,
+  squaringFunc,
   subtractFunc,
 } from '../../utils/mathFunctions';
 
@@ -65,5 +66,15 @@ export class PercentCommand {
 
   execute() {
     return calculatePercent(this.left, this.right);
+  }
+}
+
+export class SquareCommand {
+  constructor(value) {
+    this.value = value;
+  }
+
+  execute() {
+    return squaringFunc(this.value);
   }
 }

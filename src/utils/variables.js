@@ -7,6 +7,9 @@ export const CONSTANTS_DATA_KEY = {
   AC: 'AC',
   SIGN: '+/-',
   PERCENT: '%',
+  SQUARE: '**2',
+  CUBE: '**3',
+  DEGREE: '**n',
 };
 
 export const CONSTANTS_MATH_VALUE = {

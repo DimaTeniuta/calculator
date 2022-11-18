@@ -5,6 +5,7 @@ import {
   MultiplyCommand,
   PercentCommand,
   SignCommand,
+  SquareCommand,
   SubtractCommand,
 } from './mathClasses';
 
@@ -94,6 +95,19 @@ export default class Calculator {
     this.right = this.value;
     this.value = this.left;
     this.calculate();
+  }
+
+  calculateSquare() {
+    if (this.left && this.right) {
+      this.calculate();
+      this.executeCommand(new SquareCommand(+this.left));
+      this.saveValues();
+      this.isFirstInput = true;
+      return;
+    }
+    this.executeCommand(new SquareCommand(+this.left));
+    this.saveValues();
+    this.isFirstInput = true;
   }
 
   calculate() {
