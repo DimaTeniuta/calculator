@@ -1,19 +1,19 @@
 import { CONSTANTS_DATA_KEY } from '../../utils/variables';
 import Calculator from '../calculator/calculator';
-import AppView from './appView';
+import moduleAppView from './appView';
 
 export class AppController {
   constructor() {
     this.calculator = new Calculator();
-    this.appView = new AppView();
   }
 
   viewValue() {
-    this.appView.view(this.calculator.left, this.calculator.mathValue, this.calculator.right);
+    moduleAppView.view(this.calculator.left, this.calculator.mathValue, this.calculator.right);
   }
 
   chooseOperation(element) {
-    if (element.classList.contains('key')) {
+    if (element.classList.contains('key') && !element.classList.contains('disabled')) {
+      moduleAppView.removeDisabledClass();
       const dataKey = element.dataset.key;
       if (dataKey === CONSTANTS_DATA_KEY.NUM) {
         this.reducerNum(element);

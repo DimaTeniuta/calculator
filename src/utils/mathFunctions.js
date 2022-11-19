@@ -1,3 +1,5 @@
+import { ERROR } from './variables';
+
 export const addFunc = (a, b) => a + b;
 
 export const subtractFunc = (a, b) => a - b;
@@ -28,11 +30,10 @@ export const calculateCubeRoot = (value) => customMathAbs(value) ** (1 / 3);
 
 export const calculateRoot = (value, n) => customMathAbs(value) ** (1 / n);
 
-// export const calculateFactorial = (n) => (n ? n * calculateFactorial(n - 1) : 1);
 export const calculateFactorial = (n) => {
   try {
-    let result = n ? n * calculateFactorial(n - 1) : 1;
-    return result ? result : 'Error';
+    const result = n ? n * calculateFactorial(n - 1) : 1;
+    return result ? result : ERROR;
   } catch (e) {
     console.error(e.message);
   }

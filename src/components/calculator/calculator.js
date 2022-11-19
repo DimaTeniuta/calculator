@@ -1,4 +1,5 @@
-import { COMMA, CONSTANTS_MATH_VALUE, DEFAULT_INPUT_VALUE } from '../../utils/variables';
+import { COMMA, CONSTANTS_MATH_VALUE, DEFAULT_INPUT_VALUE, ERROR, INFINITY } from '../../utils/variables';
+import moduleAppView from '../app/appView';
 import {
   AddCommand,
   CubeCommand,
@@ -41,6 +42,14 @@ export default class Calculator {
     this.isFirstInput = !this.isFirstInput;
   }
 
+  setError() {
+    console.log(this.left);
+    if (this.left === ERROR || this.left === +INFINITY || this.left === +`-${INFINITY}`) {
+      this.left = ERROR;
+      moduleAppView.addDisabledClass();
+    }
+  }
+
   setValue(value) {
     if (!this.mathValue) {
       if (this.isFirstInput && this.left === String(DEFAULT_INPUT_VALUE)) {
@@ -80,6 +89,7 @@ export default class Calculator {
     this.historyValue = this.left;
     this.clear();
     this.left = this.value;
+    this.setError();
     this.value = DEFAULT_INPUT_VALUE;
     this.isSuccessOperation = true;
   }
@@ -247,7 +257,7 @@ export default class Calculator {
   }
 
   reset() {
-    this.historyValue = this.left;
+    this.historyValue = this.left !== ERROR ? this.left : String(DEFAULT_INPUT_VALUE);
     this.left = String(DEFAULT_INPUT_VALUE);
     this.right = '';
     this.mathValue = '';
