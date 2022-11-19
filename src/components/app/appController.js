@@ -53,6 +53,10 @@ export class AppController {
         this.calculator.addValueInMemory();
       } else if (dataKey === CONSTANTS_DATA_KEY.M_MINUS) {
         this.calculator.subtractValueFromMemory();
+      } else if (dataKey === CONSTANTS_DATA_KEY.MC) {
+        this.calculator.clearMemory();
+      } else if (dataKey === CONSTANTS_DATA_KEY.MR) {
+        this.calculator.setValueFromMemory();
       }
       this.viewValue();
     }

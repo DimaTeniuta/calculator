@@ -18,6 +18,8 @@ export const CONSTANTS_DATA_KEY = {
   DIVISION_BY_X: '/',
   M_PLUS: 'M+',
   M_MINUS: 'M-',
+  MC: 'Mc',
+  MR: 'Mr',
 };
 
 export const CONSTANTS_MATH_VALUE = {

@@ -309,4 +309,16 @@ export default class Calculator {
     }
     this.executeMemoryCommand(new SubtractValueFromMemoryCommand(+this.left));
   }
+
+  clearMemory() {
+    this.memory = DEFAULT_INPUT_VALUE;
+  }
+
+  setValueFromMemory() {
+    if (this.left && this.right) {
+      this.right = this.memory;
+      return;
+    }
+    this.left = this.memory;
+  }
 }
