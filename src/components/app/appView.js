@@ -1,11 +1,13 @@
 import { DEFAULT_INPUT_VALUE } from '../../utils/variables';
 
 class AppView {
-  view(left, center, right) {
-    const display = document.querySelector('.display');
-    display.innerHTML = `${left === DEFAULT_INPUT_VALUE ? left : left || ''}${center || ''}${
+  view(left, center, right, memoryValue) {
+    const input = document.querySelector('.input');
+    const memory = document.querySelector('.memory');
+    input.innerHTML = `${left === DEFAULT_INPUT_VALUE ? left : left || ''}${center || ''}${
       right === DEFAULT_INPUT_VALUE ? right : right || ''
     }`;
+    memory.innerHTML = memoryValue || '';
   }
 
   addDisabledClass() {

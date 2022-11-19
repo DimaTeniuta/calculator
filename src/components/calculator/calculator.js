@@ -17,6 +17,7 @@ import {
   SubtractCommand,
   TenDegreeCommand,
 } from './mathClasses';
+import { SaveValueInMemoryCommand } from './memory';
 
 export default class Calculator {
   constructor() {
@@ -28,6 +29,7 @@ export default class Calculator {
     this.mathValue = '';
     this.value = DEFAULT_INPUT_VALUE;
     this.historyValue = '';
+    this.memory = '';
     this.isSuccessOperation = false;
     this.isFirstInput = true;
     Calculator.context = this;
@@ -37,6 +39,10 @@ export default class Calculator {
   executeCommand(command) {
     this.value = command.execute(this.value);
     this.historyValue = this.value;
+  }
+
+  executeMemoryCommand(command) {
+    this.memory = command.execute(this.value);
   }
 
   toggleIsFirstInput() {
@@ -122,6 +128,9 @@ export default class Calculator {
       return;
     } else if (this.mathValue === CONSTANTS_MATH_VALUE.ROOT) {
       this.calculateDegreeRoot();
+      return;
+    } else if (this.mathValue === CONSTANTS_MATH_VALUE.DIVISION_BY_X) {
+      this.DivisionByXCommand();
       return;
     }
     this.saveValues();
@@ -277,5 +286,15 @@ export default class Calculator {
     this.value = DEFAULT_INPUT_VALUE;
     this.isSuccessOperation = false;
     this.isFirstInput = true;
+    this.memory = '';
+  }
+
+  setValueInMemory() {
+    if (this.left && this.right) {
+      this.calculate();
+      this.executeMemoryCommand(new SaveValueInMemoryCommand(+this.left));
+      console.log(this.memory);
+    }
+    this.executeMemoryCommand(new SaveValueInMemoryCommand(+this.left));
   }
 }

@@ -26,15 +26,30 @@
 
 .display {
   display: flex;
-  justify-content: end;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
   width: 100%;
-  height: 60px;
   max-width: 500px;
   margin: 0 auto 30px auto;
   padding: 10px;
   background-color: #ffffff;
   border: 1px solid #525050;
+}
+
+.memory {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 100%;
+  min-height: 20px;
+  font-size: 16px;
+}
+
+.input {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  height: 40px;
   font-size: 30px;
 }
 

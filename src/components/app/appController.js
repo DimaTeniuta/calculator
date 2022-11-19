@@ -8,7 +8,7 @@ export class AppController {
   }
 
   viewValue() {
-    moduleAppView.view(this.calculator.left, this.calculator.mathValue, this.calculator.right);
+    moduleAppView.view(this.calculator.left, this.calculator.mathValue, this.calculator.right, this.calculator.memory);
   }
 
   chooseOperation(element) {
@@ -49,6 +49,8 @@ export class AppController {
         this.calculator.calculateFactorial();
       } else if (dataKey === CONSTANTS_DATA_KEY.DIVISION_BY_X) {
         this.calculator.calculateDivisionByX();
+      } else if (dataKey === CONSTANTS_DATA_KEY.MS) {
+        this.calculator.setValueInMemory();
       }
       this.viewValue();
     }
