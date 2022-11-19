@@ -45,6 +45,8 @@ export class AppController {
         this.reduceDegreeRoot();
       } else if (dataKey === CONSTANTS_DATA_KEY.TEN_DEGREE) {
         this.calculator.calculateTenDegree();
+      } else if (dataKey === CONSTANTS_DATA_KEY.FACTORIAL) {
+        this.calculator.calculateFactorial();
       }
       this.viewValue();
     }

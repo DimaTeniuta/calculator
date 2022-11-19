@@ -6,6 +6,7 @@ import {
   DegreeCommand,
   DegreeRootCommand,
   DivideCommand,
+  FactorialCommand,
   MultiplyCommand,
   PercentCommand,
   SignCommand,
@@ -194,6 +195,19 @@ export default class Calculator {
       return;
     }
     this.executeCommand(new TenDegreeCommand(+this.left));
+    this.saveValues();
+    this.isFirstInput = true;
+  }
+
+  calculateFactorial() {
+    if (this.left && this.right) {
+      this.calculate();
+      this.executeCommand(new FactorialCommand(+this.left));
+      this.saveValues();
+      this.isFirstInput = true;
+      return;
+    }
+    this.executeCommand(new FactorialCommand(+this.left));
     this.saveValues();
     this.isFirstInput = true;
   }

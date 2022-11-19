@@ -28,4 +28,12 @@ export const calculateCubeRoot = (value) => customMathAbs(value) ** (1 / 3);
 
 export const calculateRoot = (value, n) => customMathAbs(value) ** (1 / n);
 
-export const calculateFactorial = (n) => (n ? n * calculateFactorial(n - 1) : 1);
+// export const calculateFactorial = (n) => (n ? n * calculateFactorial(n - 1) : 1);
+export const calculateFactorial = (n) => {
+  try {
+    let result = n ? n * calculateFactorial(n - 1) : 1;
+    return result ? result : 'Error';
+  } catch (e) {
+    console.error(e.message);
+  }
+};

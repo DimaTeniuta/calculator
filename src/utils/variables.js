@@ -14,6 +14,7 @@ export const CONSTANTS_DATA_KEY = {
   ROOT_CUBE: 'rootCube',
   ROOT_DEGREE: 'rootDegree',
   TEN_DEGREE: 'tenDegree',
+  FACTORIAL: 'n!',
 };
 
 export const CONSTANTS_MATH_VALUE = {

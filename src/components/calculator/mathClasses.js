@@ -1,6 +1,7 @@
 import {
   addFunc,
   calculateCubeRoot,
+  calculateFactorial,
   calculatePercent,
   calculateRoot,
   calculateSquareRoot,
@@ -144,5 +145,15 @@ export class TenDegreeCommand {
 
   execute() {
     return exponentiationForTenNumber(this.value);
+  }
+}
+
+export class FactorialCommand {
+  constructor(value) {
+    this.value = value;
+  }
+
+  execute() {
+    return calculateFactorial(this.value);
   }
 }
