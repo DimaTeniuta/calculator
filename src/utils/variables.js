@@ -13,6 +13,7 @@ export const CONSTANTS_DATA_KEY = {
   ROOT_SQUARE: 'rootSquare',
   ROOT_CUBE: 'rootCube',
   ROOT_DEGREE: 'rootDegree',
+  TEN_DEGREE: 'tenDegree',
 };
 
 export const CONSTANTS_MATH_VALUE = {

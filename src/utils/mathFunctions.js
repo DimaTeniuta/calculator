@@ -18,7 +18,7 @@ export const exponentiationFunc = (a, b) => a ** b;
 
 export const divisionByNumber = (value) => 1 / value;
 
-export const exponentiationForTenNumber = (a) => a ** 10;
+export const exponentiationForTenNumber = (n) => 10 ** n;
 
 const customMathAbs = (value) => (value < 0 ? -value : value);
 

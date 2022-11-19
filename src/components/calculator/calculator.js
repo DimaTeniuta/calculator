@@ -12,6 +12,7 @@ import {
   SquareCommand,
   SquareRootCommand,
   SubtractCommand,
+  TenDegreeCommand,
 } from './mathClasses';
 
 export default class Calculator {
@@ -182,6 +183,19 @@ export default class Calculator {
       return;
     }
     this.mathValue = CONSTANTS_MATH_VALUE.ROOT;
+  }
+
+  calculateTenDegree() {
+    if (this.left && this.right) {
+      this.calculate();
+      this.executeCommand(new TenDegreeCommand(+this.left));
+      this.saveValues();
+      this.isFirstInput = true;
+      return;
+    }
+    this.executeCommand(new TenDegreeCommand(+this.left));
+    this.saveValues();
+    this.isFirstInput = true;
   }
 
   calculate() {

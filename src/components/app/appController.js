@@ -43,6 +43,8 @@ export class AppController {
         this.reduceCubeRoot();
       } else if (dataKey === CONSTANTS_DATA_KEY.ROOT_DEGREE) {
         this.reduceDegreeRoot();
+      } else if (dataKey === CONSTANTS_DATA_KEY.TEN_DEGREE) {
+        this.calculator.calculateTenDegree();
       }
       this.viewValue();
     }

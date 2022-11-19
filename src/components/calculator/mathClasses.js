@@ -7,6 +7,7 @@ import {
   changeSign,
   cubingFunc,
   divideFunc,
+  exponentiationForTenNumber,
   exponentiationFunc,
   multiplyFunc,
   squaringFunc,
@@ -133,5 +134,15 @@ export class DegreeRootCommand {
 
   execute() {
     return calculateRoot(this.value, this.degree);
+  }
+}
+
+export class TenDegreeCommand {
+  constructor(value) {
+    this.value = value;
+  }
+
+  execute() {
+    return exponentiationForTenNumber(this.value);
   }
 }
