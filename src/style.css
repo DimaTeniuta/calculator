@@ -9,9 +9,14 @@
 }
 
 .container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   margin: 1920px;
   margin: 0 auto;
   padding: 30px;
+  height: 100vh;
+  background-color: #f8f8f8;
 }
 
 .wrap-calc {
@@ -55,6 +60,7 @@
 
 .wrap-keys {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 16px;
   padding: 10px;
@@ -76,9 +82,30 @@
 }
 
 .key:hover {
+  background-color: #cacaca;
   cursor: pointer;
+}
+
+.key:active {
+  box-shadow: 1px 1px 2px #858383, -1px -1px 2px #ffffff;
+  background-color: #cacaca;
+}
+
+.large-size {
+  width: 126px;
 }
 
 .disabled {
   background-color: gray;
+}
+
+.disabled:active {
+  background-color: gray;
+  box-shadow: 5px 5px 10px #474343, -3px -3px 10px #ffffff;
+}
+
+.disabled:hover {
+  cursor: default;
+  background-color: gray;
+  box-shadow: 5px 5px 10px #474343, -3px -3px 10px #ffffff;
 }

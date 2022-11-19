@@ -318,6 +318,9 @@ export default class Calculator {
     if (this.left && this.right) {
       this.right = this.memory;
       return;
+    } else if (this.mathValue) {
+      this.right = this.memory;
+      return;
     }
     this.left = this.memory;
   }
