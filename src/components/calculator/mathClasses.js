@@ -8,6 +8,7 @@ import {
   changeSign,
   cubingFunc,
   divideFunc,
+  divisionByNumber,
   exponentiationForTenNumber,
   exponentiationFunc,
   multiplyFunc,
@@ -155,5 +156,15 @@ export class FactorialCommand {
 
   execute() {
     return calculateFactorial(this.value);
+  }
+}
+
+export class DivisionByXCommand {
+  constructor(value) {
+    this.value = value;
+  }
+
+  execute() {
+    return divisionByNumber(this.value);
   }
 }

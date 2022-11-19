@@ -7,6 +7,7 @@ import {
   DegreeCommand,
   DegreeRootCommand,
   DivideCommand,
+  DivisionByXCommand,
   FactorialCommand,
   MultiplyCommand,
   PercentCommand,
@@ -43,7 +44,6 @@ export default class Calculator {
   }
 
   setError() {
-    console.log(this.left);
     if (this.left === ERROR || this.left === +INFINITY || this.left === +`-${INFINITY}`) {
       this.left = ERROR;
       moduleAppView.addDisabledClass();
@@ -102,6 +102,30 @@ export default class Calculator {
     }
     this.executeCommand(new SignCommand(+this.left));
     this.left = this.value;
+  }
+
+  calculate() {
+    if (this.mathValue === CONSTANTS_MATH_VALUE.PLUS) {
+      this.value = +this.left;
+      this.executeCommand(new AddCommand(+this.right));
+    } else if (this.mathValue === CONSTANTS_MATH_VALUE.MINUS) {
+      this.value = +this.left;
+      this.executeCommand(new SubtractCommand(+this.right));
+    } else if (this.mathValue === CONSTANTS_MATH_VALUE.MULTIPLICATION) {
+      this.value = +this.left;
+      this.executeCommand(new MultiplyCommand(+this.right));
+    } else if (this.mathValue === CONSTANTS_MATH_VALUE.DIVISION) {
+      this.value = +this.left;
+      this.executeCommand(new DivideCommand(+this.right));
+    } else if (this.mathValue === CONSTANTS_MATH_VALUE.DEGREE) {
+      this.calculateDegree();
+      return;
+    } else if (this.mathValue === CONSTANTS_MATH_VALUE.ROOT) {
+      this.calculateDegreeRoot();
+      return;
+    }
+    this.saveValues();
+    this.isFirstInput = true;
   }
 
   calculatePercent() {
@@ -222,26 +246,15 @@ export default class Calculator {
     this.isFirstInput = true;
   }
 
-  calculate() {
-    if (this.mathValue === CONSTANTS_MATH_VALUE.PLUS) {
-      this.value = +this.left;
-      this.executeCommand(new AddCommand(+this.right));
-    } else if (this.mathValue === CONSTANTS_MATH_VALUE.MINUS) {
-      this.value = +this.left;
-      this.executeCommand(new SubtractCommand(+this.right));
-    } else if (this.mathValue === CONSTANTS_MATH_VALUE.MULTIPLICATION) {
-      this.value = +this.left;
-      this.executeCommand(new MultiplyCommand(+this.right));
-    } else if (this.mathValue === CONSTANTS_MATH_VALUE.DIVISION) {
-      this.value = +this.left;
-      this.executeCommand(new DivideCommand(+this.right));
-    } else if (this.mathValue === CONSTANTS_MATH_VALUE.DEGREE) {
-      this.calculateDegree();
-      return;
-    } else if (this.mathValue === CONSTANTS_MATH_VALUE.ROOT) {
-      this.calculateDegreeRoot();
+  calculateDivisionByX() {
+    if (this.left && this.right) {
+      this.calculate();
+      this.executeCommand(new DivisionByXCommand(+this.left));
+      this.saveValues();
+      this.isFirstInput = true;
       return;
     }
+    this.executeCommand(new DivisionByXCommand(+this.left));
     this.saveValues();
     this.isFirstInput = true;
   }

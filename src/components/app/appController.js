@@ -47,6 +47,8 @@ export class AppController {
         this.calculator.calculateTenDegree();
       } else if (dataKey === CONSTANTS_DATA_KEY.FACTORIAL) {
         this.calculator.calculateFactorial();
+      } else if (dataKey === CONSTANTS_DATA_KEY.DIVISION_BY_X) {
+        this.calculator.calculateDivisionByX();
       }
       this.viewValue();
     }

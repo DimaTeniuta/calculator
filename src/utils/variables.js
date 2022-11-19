@@ -15,15 +15,17 @@ export const CONSTANTS_DATA_KEY = {
   ROOT_DEGREE: 'rootDegree',
   TEN_DEGREE: 'tenDegree',
   FACTORIAL: 'n!',
+  DIVISION_BY_X: '/',
 };
 
 export const CONSTANTS_MATH_VALUE = {
   PLUS: '+',
   MINUS: '-',
   MULTIPLICATION: '*',
-  DIVISION: '/',
+  DIVISION: '÷',
   DEGREE: '&#710;',
   ROOT: '&#8730;',
+  DIVISION_BY_X: '/',
 };
 
 export const DEFAULT_INPUT_VALUE = 0;
