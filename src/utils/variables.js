@@ -7,9 +7,10 @@ export const CONSTANTS_DATA_KEY = {
   AC: 'AC',
   SIGN: '+/-',
   PERCENT: '%',
-  SQUARE: '**2',
-  CUBE: '**3',
-  DEGREE: '**n',
+  SQUARE_DEGREE: '**2',
+  CUBE_DEGREE: '**3',
+  ANY_DEGREE: '**n',
+  DEGREE: 'degree',
   ROOT_SQUARE: 'rootSquare',
   ROOT_CUBE: 'rootCube',
   ROOT_DEGREE: 'rootDegree',
@@ -21,6 +22,7 @@ export const CONSTANTS_DATA_KEY = {
   MC: 'Mc',
   MR: 'Mr',
   M_GROUP: 'M',
+  ROOT: 'root',
 };
 
 export const CONSTANTS_MATH_VALUE = {

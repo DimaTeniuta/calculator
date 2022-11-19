@@ -16,19 +16,9 @@ export class AppController {
       moduleAppView.removeDisabledClass();
       const dataKey = element.dataset.key;
       if (dataKey === CONSTANTS_DATA_KEY.NUM) {
-        if (!this.calculator.isSuccessOperation) {
-          this.calculator.setValue(element.dataset.value);
-        } else {
-          this.calculator.isSuccessOperation = !this.calculator.isSuccessOperation;
-          this.calculator.setValue(element.dataset.value);
-        }
+        this.reducerNum(element);
       } else if (dataKey === CONSTANTS_DATA_KEY.MATH) {
-        if (!this.calculator.isSuccessOperation) {
-          this.calculator.setMathValue(element.dataset.value);
-        } else {
-          this.calculator.isSuccessOperation = !this.calculator.isSuccessOperation;
-          this.calculator.setMathValue(element.dataset.value);
-        }
+        this.reducerMath(element);
       } else if (dataKey === CONSTANTS_DATA_KEY.RESULT) {
         this.calculator.calculate();
       } else if (dataKey === CONSTANTS_DATA_KEY.BACK) {
@@ -41,34 +31,73 @@ export class AppController {
         this.calculator.changeSing();
       } else if (dataKey === CONSTANTS_DATA_KEY.PERCENT) {
         this.calculator.calculatePercent();
-      } else if (dataKey === CONSTANTS_DATA_KEY.SQUARE) {
-        this.calculator.calculateSquare();
-      } else if (dataKey === CONSTANTS_DATA_KEY.CUBE) {
-        this.calculator.calculateCube();
       } else if (dataKey === CONSTANTS_DATA_KEY.DEGREE) {
-        this.calculator.calculateDegree();
-      } else if (dataKey === CONSTANTS_DATA_KEY.ROOT_SQUARE) {
-        this.calculator.calculateSquareRoot();
-      } else if (dataKey === CONSTANTS_DATA_KEY.ROOT_CUBE) {
-        this.calculator.calculateCubeRoot();
-      } else if (dataKey === CONSTANTS_DATA_KEY.ROOT_DEGREE) {
-        this.calculator.calculateDegreeRoot();
-      } else if (dataKey === CONSTANTS_DATA_KEY.TEN_DEGREE) {
-        this.calculator.calculateTenDegree();
+        this.reducerDegreeGroup(element);
+      } else if (dataKey === CONSTANTS_DATA_KEY.ROOT) {
+        this.reducerRootGroup(element);
       } else if (dataKey === CONSTANTS_DATA_KEY.FACTORIAL) {
         this.calculator.calculateFactorial();
       } else if (dataKey === CONSTANTS_DATA_KEY.DIVISION_BY_X) {
         this.calculator.calculateDivisionByX();
-      } else if (dataKey === CONSTANTS_DATA_KEY.M_PLUS) {
-        this.calculator.addValueInMemory();
-      } else if (dataKey === CONSTANTS_DATA_KEY.M_MINUS) {
-        this.calculator.subtractValueFromMemory();
-      } else if (dataKey === CONSTANTS_DATA_KEY.MC) {
-        this.calculator.clearMemory();
-      } else if (dataKey === CONSTANTS_DATA_KEY.MR) {
-        this.calculator.setValueFromMemory();
+      } else if (dataKey === CONSTANTS_DATA_KEY.M_GROUP) {
+        this.reducerMGroup(element);
       }
       this.viewValue();
+    }
+  }
+
+  reducerNum(element) {
+    if (!this.calculator.isSuccessOperation) {
+      this.calculator.setValue(element.dataset.value);
+    } else {
+      this.calculator.isSuccessOperation = !this.calculator.isSuccessOperation;
+      this.calculator.setValue(element.dataset.value);
+    }
+  }
+
+  reducerMath(element) {
+    if (!this.calculator.isSuccessOperation) {
+      this.calculator.setMathValue(element.dataset.value);
+    } else {
+      this.calculator.isSuccessOperation = !this.calculator.isSuccessOperation;
+      this.calculator.setMathValue(element.dataset.value);
+    }
+  }
+
+  reducerDegreeGroup(element) {
+    const dataValue = element.dataset.value;
+    if (dataValue === CONSTANTS_DATA_KEY.SQUARE_DEGREE) {
+      this.calculator.calculateSquare();
+    } else if (dataValue === CONSTANTS_DATA_KEY.CUBE_DEGREE) {
+      this.calculator.calculateCube();
+    } else if (dataValue === CONSTANTS_DATA_KEY.ANY_DEGREE) {
+      this.calculator.calculateDegree();
+    } else if (dataValue === CONSTANTS_DATA_KEY.TEN_DEGREE) {
+      this.calculator.calculateTenDegree();
+    }
+  }
+
+  reducerRootGroup(element) {
+    const dataValue = element.dataset.value;
+    if (dataValue === CONSTANTS_DATA_KEY.ROOT_SQUARE) {
+      this.calculator.calculateSquareRoot();
+    } else if (dataValue === CONSTANTS_DATA_KEY.ROOT_CUBE) {
+      this.calculator.calculateCubeRoot();
+    } else if (dataValue === CONSTANTS_DATA_KEY.ROOT_DEGREE) {
+      this.calculator.calculateDegreeRoot();
+    }
+  }
+
+  reducerMGroup(element) {
+    const dataValue = element.dataset.value;
+    if (dataValue === CONSTANTS_DATA_KEY.M_PLUS) {
+      this.calculator.addValueInMemory();
+    } else if (dataValue === CONSTANTS_DATA_KEY.M_MINUS) {
+      this.calculator.subtractValueFromMemory();
+    } else if (dataValue === CONSTANTS_DATA_KEY.MC) {
+      this.calculator.clearMemory();
+    } else if (dataValue === CONSTANTS_DATA_KEY.MR) {
+      this.calculator.setValueFromMemory();
     }
   }
 }
