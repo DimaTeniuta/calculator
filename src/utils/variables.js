@@ -21,6 +21,7 @@ export const CONSTANTS_MATH_VALUE = {
   MULTIPLICATION: '*',
   DIVISION: '/',
   DEGREE: '&#710;',
+  ROOT: '&#8730;',
 };
 
 export const DEFAULT_INPUT_VALUE = 0;

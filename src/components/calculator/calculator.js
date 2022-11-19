@@ -4,6 +4,7 @@ import {
   CubeCommand,
   CubeRootCommand,
   DegreeCommand,
+  DegreeRootCommand,
   DivideCommand,
   MultiplyCommand,
   PercentCommand,
@@ -135,6 +136,10 @@ export default class Calculator {
       this.saveValues();
       this.isFirstInput = true;
       return;
+    } else if (this.right && this.mathValue) {
+      this.calculate();
+      this.mathValue = CONSTANTS_MATH_VALUE.DEGREE;
+      return;
     }
     this.mathValue = CONSTANTS_MATH_VALUE.DEGREE;
   }
@@ -165,6 +170,20 @@ export default class Calculator {
     this.isFirstInput = true;
   }
 
+  calculateDegreeRoot() {
+    if (this.left && this.right && this.mathValue === CONSTANTS_MATH_VALUE.ROOT) {
+      this.executeCommand(new DegreeRootCommand(+this.left, +this.right));
+      this.saveValues();
+      this.isFirstInput = true;
+      return;
+    } else if (this.mathValue && this.right) {
+      this.calculate();
+      this.mathValue = CONSTANTS_MATH_VALUE.ROOT;
+      return;
+    }
+    this.mathValue = CONSTANTS_MATH_VALUE.ROOT;
+  }
+
   calculate() {
     if (this.mathValue === CONSTANTS_MATH_VALUE.PLUS) {
       this.value = +this.left;
@@ -180,6 +199,9 @@ export default class Calculator {
       this.executeCommand(new DivideCommand(+this.right));
     } else if (this.mathValue === CONSTANTS_MATH_VALUE.DEGREE) {
       this.calculateDegree();
+      return;
+    } else if (this.mathValue === CONSTANTS_MATH_VALUE.ROOT) {
+      this.calculateDegreeRoot();
       return;
     }
     this.saveValues();

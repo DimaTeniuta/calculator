@@ -2,6 +2,7 @@ import {
   addFunc,
   calculateCubeRoot,
   calculatePercent,
+  calculateRoot,
   calculateSquareRoot,
   changeSign,
   cubingFunc,
@@ -121,5 +122,16 @@ export class CubeRootCommand {
 
   execute() {
     return calculateCubeRoot(this.value);
+  }
+}
+
+export class DegreeRootCommand {
+  constructor(value, degree) {
+    this.value = value;
+    this.degree = degree;
+  }
+
+  execute() {
+    return calculateRoot(this.value, this.degree);
   }
 }
