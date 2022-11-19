@@ -4,7 +4,7 @@ class AppView {
   view(left, center, right, memoryValue) {
     const input = document.querySelector('.input');
     const memory = document.querySelector('.memory');
-    input.innerHTML = `${left === DEFAULT_INPUT_VALUE ? left : left || ''}${center || ''}${
+    input.innerHTML = `${left === DEFAULT_INPUT_VALUE ? left : left || ''} ${center || ''} ${
       right === DEFAULT_INPUT_VALUE ? right : right || ''
     }`;
     memory.innerHTML = memoryValue === DEFAULT_INPUT_VALUE ? memoryValue : memoryValue || '';

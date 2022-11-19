@@ -16,33 +16,43 @@ export class AppController {
       moduleAppView.removeDisabledClass();
       const dataKey = element.dataset.key;
       if (dataKey === CONSTANTS_DATA_KEY.NUM) {
-        this.reducerNum(element);
+        if (!this.calculator.isSuccessOperation) {
+          this.calculator.setValue(element.dataset.value);
+        } else {
+          this.calculator.isSuccessOperation = !this.calculator.isSuccessOperation;
+          this.calculator.setValue(element.dataset.value);
+        }
       } else if (dataKey === CONSTANTS_DATA_KEY.MATH) {
-        this.reducerMath(element);
+        if (!this.calculator.isSuccessOperation) {
+          this.calculator.setMathValue(element.dataset.value);
+        } else {
+          this.calculator.isSuccessOperation = !this.calculator.isSuccessOperation;
+          this.calculator.setMathValue(element.dataset.value);
+        }
       } else if (dataKey === CONSTANTS_DATA_KEY.RESULT) {
-        this.reducerResult();
+        this.calculator.calculate();
       } else if (dataKey === CONSTANTS_DATA_KEY.BACK) {
-        this.reducerBack();
+        this.calculator.cancel();
       } else if (dataKey === CONSTANTS_DATA_KEY.COMMA) {
-        this.reducerComa(element);
+        this.calculator.setComma(element.dataset.value);
       } else if (dataKey === CONSTANTS_DATA_KEY.AC) {
-        this.reducerReset();
+        this.calculator.reset();
       } else if (dataKey === CONSTANTS_DATA_KEY.SIGN) {
-        this.reducerSign();
+        this.calculator.changeSing();
       } else if (dataKey === CONSTANTS_DATA_KEY.PERCENT) {
-        this.reducerPercent();
+        this.calculator.calculatePercent();
       } else if (dataKey === CONSTANTS_DATA_KEY.SQUARE) {
-        this.reducerSquare();
+        this.calculator.calculateSquare();
       } else if (dataKey === CONSTANTS_DATA_KEY.CUBE) {
-        this.reducerCube();
+        this.calculator.calculateCube();
       } else if (dataKey === CONSTANTS_DATA_KEY.DEGREE) {
-        this.reducerDegree();
+        this.calculator.calculateDegree();
       } else if (dataKey === CONSTANTS_DATA_KEY.ROOT_SQUARE) {
-        this.reduceSquareRoot();
+        this.calculator.calculateSquareRoot();
       } else if (dataKey === CONSTANTS_DATA_KEY.ROOT_CUBE) {
-        this.reduceCubeRoot();
+        this.calculator.calculateCubeRoot();
       } else if (dataKey === CONSTANTS_DATA_KEY.ROOT_DEGREE) {
-        this.reduceDegreeRoot();
+        this.calculator.calculateDegreeRoot();
       } else if (dataKey === CONSTANTS_DATA_KEY.TEN_DEGREE) {
         this.calculator.calculateTenDegree();
       } else if (dataKey === CONSTANTS_DATA_KEY.FACTORIAL) {
@@ -60,71 +70,5 @@ export class AppController {
       }
       this.viewValue();
     }
-  }
-
-  reducerNum(element) {
-    if (!this.calculator.isSuccessOperation) {
-      this.calculator.setValue(element.dataset.value);
-    } else {
-      this.calculator.isSuccessOperation = !this.calculator.isSuccessOperation;
-      this.calculator.setValue(element.dataset.value);
-    }
-  }
-
-  reducerMath(element) {
-    if (!this.calculator.isSuccessOperation) {
-      this.calculator.setMathValue(element.dataset.value);
-    } else {
-      this.calculator.isSuccessOperation = !this.calculator.isSuccessOperation;
-      this.calculator.setMathValue(element.dataset.value);
-    }
-  }
-
-  reducerResult() {
-    this.calculator.calculate();
-  }
-
-  reducerBack() {
-    this.calculator.cancel();
-  }
-
-  reducerComa(element) {
-    this.calculator.setComma(element.dataset.value);
-  }
-
-  reducerReset() {
-    this.calculator.reset();
-  }
-
-  reducerSign() {
-    this.calculator.changeSing();
-  }
-
-  reducerPercent() {
-    this.calculator.calculatePercent();
-  }
-
-  reducerSquare() {
-    this.calculator.calculateSquare();
-  }
-
-  reducerCube() {
-    this.calculator.calculateCube();
-  }
-
-  reducerDegree() {
-    this.calculator.calculateDegree();
-  }
-
-  reduceSquareRoot() {
-    this.calculator.calculateSquareRoot();
-  }
-
-  reduceCubeRoot() {
-    this.calculator.calculateCubeRoot();
-  }
-
-  reduceDegreeRoot() {
-    this.calculator.calculateDegreeRoot();
   }
 }

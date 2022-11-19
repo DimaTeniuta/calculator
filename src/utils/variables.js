@@ -20,6 +20,7 @@ export const CONSTANTS_DATA_KEY = {
   M_MINUS: 'M-',
   MC: 'Mc',
   MR: 'Mr',
+  M_GROUP: 'M',
 };
 
 export const CONSTANTS_MATH_VALUE = {
