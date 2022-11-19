@@ -7,7 +7,7 @@ class AppView {
     input.innerHTML = `${left === DEFAULT_INPUT_VALUE ? left : left || ''}${center || ''}${
       right === DEFAULT_INPUT_VALUE ? right : right || ''
     }`;
-    memory.innerHTML = memoryValue || '';
+    memory.innerHTML = memoryValue === DEFAULT_INPUT_VALUE ? memoryValue : memoryValue || '';
   }
 
   addDisabledClass() {

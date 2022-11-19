@@ -17,7 +17,7 @@ import {
   SubtractCommand,
   TenDegreeCommand,
 } from './mathClasses';
-import { SaveValueInMemoryCommand } from './memory';
+import { addValueInMemoryCommand, SubtractValueFromMemoryCommand } from './memory';
 
 export default class Calculator {
   constructor() {
@@ -29,7 +29,7 @@ export default class Calculator {
     this.mathValue = '';
     this.value = DEFAULT_INPUT_VALUE;
     this.historyValue = '';
-    this.memory = '';
+    this.memory = DEFAULT_INPUT_VALUE;
     this.isSuccessOperation = false;
     this.isFirstInput = true;
     Calculator.context = this;
@@ -42,7 +42,11 @@ export default class Calculator {
   }
 
   executeMemoryCommand(command) {
-    this.memory = command.execute(this.value);
+    const value = command.execute(this.memory);
+    if (value === ERROR || value === +INFINITY || value === +`-${INFINITY}`) {
+      return;
+    }
+    this.memory = value;
   }
 
   toggleIsFirstInput() {
@@ -286,15 +290,23 @@ export default class Calculator {
     this.value = DEFAULT_INPUT_VALUE;
     this.isSuccessOperation = false;
     this.isFirstInput = true;
-    this.memory = '';
   }
 
-  setValueInMemory() {
+  addValueInMemory() {
     if (this.left && this.right) {
       this.calculate();
-      this.executeMemoryCommand(new SaveValueInMemoryCommand(+this.left));
-      console.log(this.memory);
+      this.executeMemoryCommand(new addValueInMemoryCommand(+this.left));
+      return;
     }
-    this.executeMemoryCommand(new SaveValueInMemoryCommand(+this.left));
+    this.executeMemoryCommand(new addValueInMemoryCommand(+this.left));
+  }
+
+  subtractValueFromMemory() {
+    if (this.left && this.right) {
+      this.calculate();
+      this.executeMemoryCommand(new SubtractValueFromMemoryCommand(+this.left));
+      return;
+    }
+    this.executeMemoryCommand(new SubtractValueFromMemoryCommand(+this.left));
   }
 }

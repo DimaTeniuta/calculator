@@ -16,7 +16,8 @@ export const CONSTANTS_DATA_KEY = {
   TEN_DEGREE: 'tenDegree',
   FACTORIAL: 'n!',
   DIVISION_BY_X: '/',
-  MS: 'Ms',
+  M_PLUS: 'M+',
+  M_MINUS: 'M-',
 };
 
 export const CONSTANTS_MATH_VALUE = {

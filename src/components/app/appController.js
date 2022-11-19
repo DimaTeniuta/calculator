@@ -49,8 +49,10 @@ export class AppController {
         this.calculator.calculateFactorial();
       } else if (dataKey === CONSTANTS_DATA_KEY.DIVISION_BY_X) {
         this.calculator.calculateDivisionByX();
-      } else if (dataKey === CONSTANTS_DATA_KEY.MS) {
-        this.calculator.setValueInMemory();
+      } else if (dataKey === CONSTANTS_DATA_KEY.M_PLUS) {
+        this.calculator.addValueInMemory();
+      } else if (dataKey === CONSTANTS_DATA_KEY.M_MINUS) {
+        this.calculator.subtractValueFromMemory();
       }
       this.viewValue();
     }
