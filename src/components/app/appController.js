@@ -1,20 +1,28 @@
 import { CONSTANTS_DATA_KEY } from '../../utils/variables';
-import Calculator from '../calculator/calculator';
+import { Calc } from '../calculator/calculator';
 import moduleAppView from './appView';
 
 export class AppController {
   constructor() {
-    this.calculator = new Calculator();
+    this.calculator = new Calc();
   }
 
   viewValue() {
-    moduleAppView.view(this.calculator.left, this.calculator.mathValue, this.calculator.right, this.calculator.memory);
+    moduleAppView.view(
+      this.calculator.state.left,
+      this.calculator.state.mathValue,
+      this.calculator.state.right,
+      this.calculator.state.memory
+    );
   }
 
   chooseOperation(element) {
-    if (element.classList.contains('key') && !element.classList.contains('disabled')) {
+    if (
+      (element.classList.contains('key') && !element.classList.contains('disabled')) ||
+      (element.parentElement.classList.contains('key') && !element.parentElement.classList.contains('disabled'))
+    ) {
       moduleAppView.removeDisabledClass();
-      const dataKey = element.dataset.key;
+      const dataKey = element.dataset.key ? element.dataset.key : element.parentElement.dataset.key;
       if (dataKey === CONSTANTS_DATA_KEY.NUM) {
         this.reducerNum(element);
       } else if (dataKey === CONSTANTS_DATA_KEY.MATH) {
@@ -47,25 +55,26 @@ export class AppController {
   }
 
   reducerNum(element) {
-    if (!this.calculator.isSuccessOperation) {
+    if (!this.calculator.state.isSuccessOperation) {
       this.calculator.setValue(element.dataset.value);
     } else {
-      this.calculator.isSuccessOperation = !this.calculator.isSuccessOperation;
+      this.calculator.state.isSuccessOperation = !this.calculator.state.isSuccessOperation;
       this.calculator.setValue(element.dataset.value);
     }
   }
 
   reducerMath(element) {
-    if (!this.calculator.isSuccessOperation) {
-      this.calculator.setMathValue(element.dataset.value);
+    const value = element.dataset.value ? element.dataset.value : element.parentElement.dataset.value;
+    if (!this.calculator.state.isSuccessOperation) {
+      this.calculator.setMathValue(value);
     } else {
-      this.calculator.isSuccessOperation = !this.calculator.isSuccessOperation;
-      this.calculator.setMathValue(element.dataset.value);
+      this.calculator.state.isSuccessOperation = !this.calculator.state.isSuccessOperation;
+      this.calculator.setMathValue(value);
     }
   }
 
   reducerDegreeGroup(element) {
-    const dataValue = element.dataset.value;
+    const dataValue = element.dataset.value ? element.dataset.value : element.parentElement.dataset.value;
     if (dataValue === CONSTANTS_DATA_KEY.SQUARE_DEGREE) {
       this.calculator.calculateSquare();
     } else if (dataValue === CONSTANTS_DATA_KEY.CUBE_DEGREE) {
@@ -78,7 +87,7 @@ export class AppController {
   }
 
   reducerRootGroup(element) {
-    const dataValue = element.dataset.value;
+    const dataValue = element.dataset.value ? element.dataset.value : element.parentElement.dataset.value;
     if (dataValue === CONSTANTS_DATA_KEY.ROOT_SQUARE) {
       this.calculator.calculateSquareRoot();
     } else if (dataValue === CONSTANTS_DATA_KEY.ROOT_CUBE) {
