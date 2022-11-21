@@ -55,22 +55,18 @@ export class AppController {
   }
 
   reducerNum(element) {
-    if (!this.calculator.state.isSuccessOperation) {
-      this.calculator.setValue(element.dataset.value);
-    } else {
+    if (this.calculator.state.isSuccessOperation) {
       this.calculator.state.isSuccessOperation = !this.calculator.state.isSuccessOperation;
-      this.calculator.setValue(element.dataset.value);
     }
+    this.calculator.setValue(element.dataset.value);
   }
 
   reducerMath(element) {
     const value = element.dataset.value ? element.dataset.value : element.parentElement.dataset.value;
-    if (!this.calculator.state.isSuccessOperation) {
-      this.calculator.setMathValue(value);
-    } else {
+    if (this.calculator.state.isSuccessOperation) {
       this.calculator.state.isSuccessOperation = !this.calculator.state.isSuccessOperation;
-      this.calculator.setMathValue(value);
     }
+    this.calculator.setMathValue(value);
   }
 
   reducerDegreeGroup(element) {

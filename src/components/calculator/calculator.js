@@ -18,10 +18,12 @@ import {
   DownloadMemoryValueCommand,
   SubtractValueFromMemoryCommand,
 } from './executors/memory';
-import { CancelCommand, ResetCommand } from './executors/other';
+import { ResetCommand } from './executors/other';
 import { CubeRootCommand, DegreeRootCommand, SquareRootCommand } from './executors/root';
 import { CommaCommand, MathValueCommand, ValueCommand } from './executors/values';
 import { SquareCommand, CubeCommand, TenDegreeCommand } from './executors/degree';
+import Caretaker from '../memento/caretaker';
+import { creator } from '../memento/creator';
 
 export class Calc {
   constructor() {
@@ -31,15 +33,17 @@ export class Calc {
       mathValue: '',
       value: DEFAULT_INPUT_VALUE,
       memory: DEFAULT_INPUT_VALUE,
-      historyValue: '',
       isSuccessOperation: false,
       isFirstInput: true,
     };
+    this.caretaker = new Caretaker();
   }
 
   executeCommand(command) {
     this.state = command.execute({ ...this.state });
-    this.state.historyValue = this.state.value;
+    if (validatorErr(this.state.value)) {
+      this.caretaker.addMemento(creator.save({ ...this.state }));
+    }
   }
 
   setError() {
@@ -69,6 +73,9 @@ export class Calc {
   }
 
   setMathValue(value) {
+    if (this.state.mathValue && this.state.right) {
+      this.calculate();
+    }
     this.executeCommand(new MathCommand(value));
   }
 
@@ -211,7 +218,10 @@ export class Calc {
   }
 
   cancel() {
-    this.executeCommand(new CancelCommand());
+    const history = creator.restore(this.caretaker.getMemento());
+    if (history) {
+      this.state = history;
+    }
   }
 
   reset() {
