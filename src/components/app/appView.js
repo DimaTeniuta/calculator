@@ -1,6 +1,18 @@
 import { DEFAULT_INPUT_VALUE } from '../../utils/variables';
+import { AppController } from './appController';
 
 class AppView {
+  constructor() {
+    this.appController = new AppController();
+  }
+
+  addListenerToCalculatorKeys() {
+    const calcArea = document.querySelector('.wrap-keys');
+    calcArea.addEventListener('click', (e) => {
+      this.appController.chooseOperation(e.target);
+    });
+  }
+
   view(left, center, right, memoryValue) {
     const input = document.querySelector('.input');
     const memory = document.querySelector('.memory');

@@ -37,6 +37,7 @@ export class Calculator {
       isFirstInput: true,
     };
     this.caretaker = new Caretaker();
+    this.caretaker.addMemento(creator.save({ ...this.state }));
   }
 
   executeCommand(command) {

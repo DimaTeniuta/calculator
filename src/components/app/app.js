@@ -1,14 +1,7 @@
-import { AppController } from './appController';
+import moduleAppView from './appView';
 
 export default class App {
-  constructor() {
-    this.appController = new AppController();
-  }
-
   start() {
-    const calcArea = document.querySelector('.wrap-keys');
-    calcArea.addEventListener('click', (e) => {
-      this.appController.chooseOperation(e.target);
-    });
+    moduleAppView.addListenerToCalculatorKeys();
   }
 }
