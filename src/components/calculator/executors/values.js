@@ -1,3 +1,4 @@
+import { commaValidator } from '../../../utils/validator';
 import { COMMA, DEFAULT_INPUT_VALUE } from '../../../utils/variables';
 
 export class ValueCommand {
@@ -55,6 +56,7 @@ export class MathValueCommand {
   }
 
   execute(state) {
+    state.left = commaValidator(state.left);
     state.mathValue = this.value;
     return state;
   }

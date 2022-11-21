@@ -8,6 +8,7 @@ import {
   multiplyFunc,
   subtractFunc,
 } from '../../../utils/mathFunctions';
+import { commaValidator } from '../../../utils/validator';
 
 export class MathCommand {
   constructor(value) {
@@ -15,6 +16,7 @@ export class MathCommand {
   }
 
   execute(state) {
+    state.left = commaValidator(state.left);
     state.mathValue = this.value;
     return state;
   }

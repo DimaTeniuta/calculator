@@ -25,7 +25,7 @@ import { SquareCommand, CubeCommand, TenDegreeCommand } from './executors/degree
 import Caretaker from '../memento/caretaker';
 import { creator } from '../memento/creator';
 
-export class Calc {
+export class Calculator {
   constructor() {
     this.state = {
       left: String(DEFAULT_INPUT_VALUE),

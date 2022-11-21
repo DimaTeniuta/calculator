@@ -1,10 +1,10 @@
 import { CONSTANTS_DATA_KEY } from '../../utils/variables';
-import { Calc } from '../calculator/calculator';
+import { Calculator } from '../calculator/calculator';
 import moduleAppView from './appView';
 
 export class AppController {
   constructor() {
-    this.calculator = new Calc();
+    this.calculator = new Calculator();
   }
 
   viewValue() {
