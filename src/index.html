@@ -11,45 +11,71 @@
   </head>
   <body>
     <div class="container">
-      <div class="wrap-calc">
-        <div class="display">
-          <div class="memory">0</div>
-          <div class="input">0</div>
+      <header class="header">
+        <div class="header-container">
+          <div class="logo"></div>
+          <label class="switch">
+            <input class="input" type="checkbox">
+            <span class="slider round"></span>
+          </label>
         </div>
-        <div class="wrap-keys">
-          <div class="key" data-mathBtn="math" data-value="Mc" data-key="M">Mc</div>
-          <div class="key" data-mathBtn="math" data-value="M+" data-key="M">M+</div>
-          <div class="key" data-mathBtn="math" data-value="M-" data-key="M">M-</div>
-          <div class="key" data-mathBtn="math" data-value="Mr" data-key="M">Mr</div>
-          <div class="key" data-mathBtn="math" data-value="+/-" data-key="+/-">+/-</div>
-          <div class="key" data-mathBtn="math" data-value="%" data-key="%">%</div>
-          <div class="key" data-mathBtn="math" data-value="÷" data-key="math">&#247;</div>
-          <div class="key" data-mathBtn="math" data-value="**2" data-key="degree">x <span class="modifier">2</span></div>
-          <div class="key" data-mathBtn="math" data-value="**3" data-key="degree">x <span class="modifier">3</span></div>
-          <div class="key" data-mathBtn="math" data-value="**n" data-key="degree">x<span class="modifier">n</span></div>
-          <div class="key" data-value="7" data-key="num">7</div>
-          <div class="key" data-value="8" data-key="num">8</div>
-          <div class="key" data-value="9" data-key="num">9</div>
-          <div class="key" data-mathBtn="math" data-value="*" data-key="math" data-math="*">x</div>
-          <div class="key" data-mathBtn="math" data-value="rootSquare" data-key="root">&#8730;<span class="modifier">2</span></div>
-          <div class="key" data-mathBtn="math" data-value="rootCube" data-key="root">&#8730;<span class="modifier">3</span></div>
-          <div class="key" data-mathBtn="math" data-value="rootDegree" data-key="root">&#8730;<span class="modifier">y</span></div>
-          <div class="key" data-value="4" data-key="num">4</div>
-          <div class="key" data-value="5" data-key="num">5</div>
-          <div class="key" data-value="6" data-key="num">6</div>
-          <div class="key" data-mathBtn="math" data-value="-" data-key="math">-</div>
-          <div class="key" data-mathBtn="math" data-value="tenDegree" data-key="degree">10<span class="modifier">x</span></div>
-          <div class="key" data-mathBtn="math" data-value="n!" data-key="n!">n!</div>
-          <div class="key" data-mathBtn="math" data-value="/" data-key="/">1/x</div>
-          <div class="key" data-value="1" data-key="num">1</div>
-          <div class="key" data-value="2" data-key="num">2</div>
-          <div class="key" data-value="3" data-key="num">3</div>
-          <div class="key" data-mathBtn="math" data-value="+" data-key="math" data-math="+">+</div>
-          <div class="key large-size" data-mathBtn="math" data-value="back" data-key="back">Cancel</div>
-          <div class="key" data-value="ac" data-key="AC">AC</div>
-          <div class="key" data-value="0" data-key="num">0</div>
-          <div class="key" data-value="." data-key="comma">.</div>
-          <div class="key" data-mathBtn="math" data-value="=" data-key="result">=</div>
+      </header>
+
+      <div class="container-calc">
+        <div class="wrap-calc">
+          <div class="display">
+            <div class="memory">0</div>
+            <div class="value">0</div>
+          </div>
+          <div class="wrap-keys">
+            <div class="key" data-mathBtn="math" data-value="Mc" data-key="M">Mc</div>
+            <div class="key" data-mathBtn="math" data-value="M+" data-key="M">M+</div>
+            <div class="key" data-mathBtn="math" data-value="M-" data-key="M">M-</div>
+            <div class="key" data-mathBtn="math" data-value="Mr" data-key="M">Mr</div>
+            <div class="key" data-mathBtn="math" data-value="+/-" data-key="+/-">+/-</div>
+            <div class="key" data-mathBtn="math" data-value="%" data-key="%">%</div>
+            <div class="key" data-mathBtn="math" data-value="÷" data-key="math">&#247;</div>
+            <div class="key" data-mathBtn="math" data-value="**2" data-key="degree">
+              x <span class="modifier">2</span>
+            </div>
+            <div class="key" data-mathBtn="math" data-value="**3" data-key="degree">
+              x <span class="modifier">3</span>
+            </div>
+            <div class="key" data-mathBtn="math" data-value="**n" data-key="degree">
+              x<span class="modifier">n</span>
+            </div>
+            <div class="key" data-value="7" data-key="num">7</div>
+            <div class="key" data-value="8" data-key="num">8</div>
+            <div class="key" data-value="9" data-key="num">9</div>
+            <div class="key" data-mathBtn="math" data-value="*" data-key="math" data-math="*">x</div>
+            <div class="key" data-mathBtn="math" data-value="rootSquare" data-key="root">
+              &#8730;<span class="modifier">2</span>
+            </div>
+            <div class="key" data-mathBtn="math" data-value="rootCube" data-key="root">
+              &#8730;<span class="modifier">3</span>
+            </div>
+            <div class="key" data-mathBtn="math" data-value="rootDegree" data-key="root">
+              &#8730;<span class="modifier">y</span>
+            </div>
+            <div class="key" data-value="4" data-key="num">4</div>
+            <div class="key" data-value="5" data-key="num">5</div>
+            <div class="key" data-value="6" data-key="num">6</div>
+            <div class="key" data-mathBtn="math" data-value="-" data-key="math">-</div>
+            <div class="key" data-mathBtn="math" data-value="tenDegree" data-key="degree">
+              10<span class="modifier">x</span>
+            </div>
+            <div class="key" data-mathBtn="math" data-value="n!" data-key="n!">n!</div>
+            <div class="key" data-mathBtn="math" data-value="/" data-key="/">1/x</div>
+            <div class="key" data-value="1" data-key="num">1</div>
+            <div class="key" data-value="2" data-key="num">2</div>
+            <div class="key" data-value="3" data-key="num">3</div>
+            <div class="key" data-mathBtn="math" data-value="+" data-key="math" data-math="+">+</div>
+            <div class="key large-size" data-mathBtn="math" data-value="back" data-key="back">Cancel</div>
+            <div class="key" data-value="ac" data-key="AC">AC</div>
+            <div class="key" data-value="0" data-key="num">0</div>
+            <div class="key" data-value="." data-key="comma">.</div>
+            <div class="key" data-mathBtn="math" data-value="=" data-key="result">=</div>
+          </div>
         </div>
       </div>
     </div>
