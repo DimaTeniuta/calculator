@@ -1,6 +1,10 @@
 import { addFunc } from '../src/utils/mathFunctions';
-import { test, expect } from '@jest/globals';
+import { it, expect, describe } from '@jest/globals';
 
-test('mathFunc', () => {
-  expect(addFunc(1, 2)).toBe(3);
+describe('mathFunc', () => {
+  it('calculate', () => {
+    expect(addFunc(1, 2)).toBe(3);
+    expect(addFunc(1, 2)).toEqual(3);
+    expect(addFunc(1, 2)).not.toBe(0);
+  });
 });

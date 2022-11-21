@@ -22,7 +22,7 @@ export const divisionByNumber = (value) => 1 / value;
 
 export const exponentiationForTenNumber = (n) => 10 ** n;
 
-const customMathAbs = (value) => (value < 0 ? -value : value);
+export const customMathAbs = (value) => (value < 0 ? -value : value);
 
 export const calculateSquareRoot = (value) => customMathAbs(value) ** (1 / 2);
 
