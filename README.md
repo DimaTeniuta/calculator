@@ -1,5 +1,5 @@
 1. Task: [Level 0: Custom Calculator](https://mail.google.com/chat/u/2/#chat/space/AAAAg3mEYtY)
-2. Task screenshot:
+---
 ![image](https://user-images.githubusercontent.com/93836691/203250913-31d3ac87-64f1-409e-a9f7-38f7a0888082.png)
 
 ![image](https://user-images.githubusercontent.com/93836691/203250828-b51e94b0-3772-4008-8de0-b24bf837c694.png)
