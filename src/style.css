@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'Montserrat';
+  src: url('../public/font/Montserrat-Regular.ttf');
+}
+
 :root {
   --white: #ffffff;
   --color-white: #fefefe;
