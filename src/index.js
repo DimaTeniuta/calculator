@@ -1,3 +1,5 @@
+import App from './components/app/app';
 import './style.css';
 
-const  r =   23;
+const calculator = new App();
+calculator.start();
