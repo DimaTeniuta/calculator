@@ -1,7 +1,10 @@
 1. Task: [Level 0: Custom Calculator](https://mail.google.com/chat/u/2/#chat/space/AAAAg3mEYtY)
 ![image](https://user-images.githubusercontent.com/93836691/203250913-31d3ac87-64f1-409e-a9f7-38f7a0888082.png)
+
 ![image](https://user-images.githubusercontent.com/93836691/203250828-b51e94b0-3772-4008-8de0-b24bf837c694.png)
+
 ![image](https://user-images.githubusercontent.com/93836691/203250999-d3da985c-52e2-448b-b0ae-510dc0701db6.png)
+
 2. Deploy: https://custom-calculator-innowise.netlify.app/
 3. How to run the app: 
 - You should use command in the terminal ```git clone https://github.com/DimaTeniuta/calculator.git```
