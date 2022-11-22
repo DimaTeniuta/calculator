@@ -86,13 +86,13 @@ export class Calculator {
 
   calculate() {
     if (this.state.mathValue === CONSTANTS_MATH_VALUE.PLUS) {
-      this.executeCommand(new AddCommand(+this.state.right));
+      this.executeCommand(new AddCommand());
     } else if (this.state.mathValue === CONSTANTS_MATH_VALUE.MINUS) {
-      this.executeCommand(new SubtractCommand(+this.state.right));
+      this.executeCommand(new SubtractCommand());
     } else if (this.state.mathValue === CONSTANTS_MATH_VALUE.MULTIPLICATION) {
-      this.executeCommand(new MultiplyCommand(+this.state.right));
+      this.executeCommand(new MultiplyCommand());
     } else if (this.state.mathValue === CONSTANTS_MATH_VALUE.DIVISION) {
-      this.executeCommand(new DivideCommand(+this.state.right));
+      this.executeCommand(new DivideCommand());
     } else if (this.state.mathValue === CONSTANTS_MATH_VALUE.DEGREE) {
       this.calculateDegree();
       return;
@@ -108,7 +108,7 @@ export class Calculator {
 
   calculateDegree() {
     if (this.state.left && this.state.right && this.state.mathValue === CONSTANTS_MATH_VALUE.DEGREE) {
-      this.executeCommand(new DegreeRootCommand(+this.state.left, +this.state.right));
+      this.executeCommand(new DegreeRootCommand());
       this.saveValues();
       return;
     } else if (this.state.right && this.state.mathValue) {
@@ -121,7 +121,7 @@ export class Calculator {
 
   calculateDegreeRoot() {
     if (this.state.left && this.state.right && this.state.mathValue === CONSTANTS_MATH_VALUE.ROOT) {
-      this.executeCommand(new DegreeRootCommand(+this.state.left, +this.state.right));
+      this.executeCommand(new DegreeRootCommand());
       this.saveValues();
       return;
     } else if (this.state.mathValue && this.state.right) {
@@ -135,11 +135,11 @@ export class Calculator {
   calculateDivisionByX() {
     if (this.state.left && this.state.right) {
       this.calculate();
-      this.executeCommand(new DivisionByXCommand(+this.state.left));
+      this.executeCommand(new DivisionByXCommand());
       this.saveValues();
       return;
     }
-    this.executeCommand(new DivisionByXCommand(+this.state.left));
+    this.executeCommand(new DivisionByXCommand());
     this.saveValues();
   }
 
@@ -148,73 +148,73 @@ export class Calculator {
       this.saveValues();
       return;
     }
-    this.executeCommand(new PercentCommand(+this.state.left, +this.state.right));
+    this.executeCommand(new PercentCommand());
     this.calculate();
   }
 
   calculateSquare() {
     if (this.state.left && this.state.right) {
       this.calculate();
-      this.executeCommand(new SquareCommand(+this.state.left));
+      this.executeCommand(new SquareCommand());
       this.saveValues();
       return;
     }
-    this.executeCommand(new SquareCommand(+this.state.left));
+    this.executeCommand(new SquareCommand());
     this.saveValues();
   }
 
   calculateCube() {
     if (this.state.left && this.state.right) {
       this.calculate();
-      this.executeCommand(new CubeCommand(+this.state.left));
+      this.executeCommand(new CubeCommand());
       this.saveValues();
       return;
     }
-    this.executeCommand(new CubeCommand(+this.state.left));
+    this.executeCommand(new CubeCommand());
     this.saveValues();
   }
 
   calculateSquareRoot() {
     if (this.state.left && this.state.right) {
       this.calculate();
-      this.executeCommand(new SquareRootCommand(+this.state.left));
+      this.executeCommand(new SquareRootCommand());
       this.saveValues();
       return;
     }
-    this.executeCommand(new SquareRootCommand(+this.state.left));
+    this.executeCommand(new SquareRootCommand());
     this.saveValues();
   }
 
   calculateCubeRoot() {
     if (this.state.left && this.state.right) {
       this.calculate();
-      this.executeCommand(new CubeRootCommand(+this.state.left));
+      this.executeCommand(new CubeRootCommand());
       this.saveValues();
       return;
     }
-    this.executeCommand(new CubeRootCommand(+this.state.left));
+    this.executeCommand(new CubeRootCommand());
     this.saveValues();
   }
 
   calculateTenDegree() {
     if (this.state.left && this.state.right) {
       this.calculate();
-      this.executeCommand(new TenDegreeCommand(+this.state.left));
+      this.executeCommand(new TenDegreeCommand());
       this.saveValues();
       return;
     }
-    this.executeCommand(new TenDegreeCommand(+this.state.left));
+    this.executeCommand(new TenDegreeCommand());
     this.saveValues();
   }
 
   calculateFactorial() {
     if (this.state.left && this.state.right) {
       this.calculate();
-      this.executeCommand(new FactorialCommand(+this.state.left));
+      this.executeCommand(new FactorialCommand());
       this.saveValues();
       return;
     }
-    this.executeCommand(new FactorialCommand(+this.state.left));
+    this.executeCommand(new FactorialCommand());
     this.saveValues();
   }
 

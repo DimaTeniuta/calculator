@@ -6,6 +6,7 @@ export class addValueInMemoryCommand {
   constructor(value) {
     this.value = value;
   }
+
   execute(state) {
     const value = addFunc(state.memory, this.value);
     if (validatorErr) {

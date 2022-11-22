@@ -1,46 +1,29 @@
 import { cubingFunc, exponentiationForTenNumber, exponentiationFunc, squaringFunc } from '../../../utils/mathFunctions';
 
 export class DegreeCommand {
-  constructor(left, right) {
-    this.left = left;
-    this.right = right;
-  }
-
   execute(state) {
-    state.value = exponentiationFunc(this.left, this.right);
+    state.value = exponentiationFunc(+state.left, +state.right);
     return state;
   }
 }
 
 export class SquareCommand {
-  constructor(value) {
-    this.value = value;
-  }
-
   execute(state) {
-    state.value = squaringFunc(this.value);
+    state.value = squaringFunc(+state.left);
     return state;
   }
 }
 
 export class CubeCommand {
-  constructor(value) {
-    this.value = value;
-  }
-
   execute(state) {
-    state.value = cubingFunc(this.value);
+    state.value = cubingFunc(+state.left);
     return state;
   }
 }
 
 export class TenDegreeCommand {
-  constructor(value) {
-    this.value = value;
-  }
-
   execute(state) {
-    state.value = exponentiationForTenNumber(this.value);
+    state.value = exponentiationForTenNumber(+state.left);
     return state;
   }
 }

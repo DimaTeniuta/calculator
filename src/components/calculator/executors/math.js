@@ -36,12 +36,8 @@ export class SignCommand {
 }
 
 export class AddCommand {
-  constructor(value) {
-    this.value = value;
-  }
-
   execute(state) {
-    state.value = addFunc(+state.left, this.value);
+    state.value = addFunc(+state.left, +state.right);
     return state;
   }
 }
@@ -52,52 +48,35 @@ export class SubtractCommand {
   }
 
   execute(state) {
-    state.value = subtractFunc(+state.left, this.value);
+    state.value = subtractFunc(+state.left, +state.right);
     return state;
   }
 }
 
 export class MultiplyCommand {
-  constructor(value) {
-    this.value = value;
-  }
-
   execute(state) {
-    state.value = multiplyFunc(+state.left, this.value);
+    state.value = multiplyFunc(+state.left, +state.right);
     return state;
   }
 }
 
 export class DivideCommand {
-  constructor(value) {
-    this.value = value;
-  }
-
   execute(state) {
-    state.value = divideFunc(+state.left, this.value);
+    state.value = divideFunc(+state.left, +state.right);
     return state;
   }
 }
 
 export class DivisionByXCommand {
-  constructor(value) {
-    this.value = value;
-  }
-
   execute(state) {
-    state.value = divisionByNumber(this.value);
+    state.value = divisionByNumber(+state.left);
     return state;
   }
 }
 
 export class PercentCommand {
-  constructor(left, right) {
-    this.left = left;
-    this.right = right;
-  }
-
   execute(state) {
-    state.value = calculatePercent(this.left, this.right);
+    state.value = calculatePercent(+state.left, +state.right);
     state.right = state.value;
     state.value = state.left;
     return state;
@@ -105,12 +84,8 @@ export class PercentCommand {
 }
 
 export class FactorialCommand {
-  constructor(value) {
-    this.value = value;
-  }
-
   execute(state) {
-    state.value = calculateFactorial(this.value);
+    state.value = calculateFactorial(+state.left);
     return state;
   }
 }

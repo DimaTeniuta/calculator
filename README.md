@@ -11,15 +11,15 @@
 - You should use command in the terminal ```git clone https://github.com/DimaTeniuta/calculator.git```
 - Next, use the ```cd calculator``` command to go to the calculator folder
 - use command ```npm i```
-- after succesful installation use command ```npm run build``` for create build
+- after successful installation use command ```npm run build``` for create build
 - others command you can find in package.json file
 4. folder structure:
 - public has font and svg file for logo.
 - components
-1. app (сonsisits of 3 files. It's: app.js, appController.js, appView.js )
-2. calculator (consists of calculator.js file and foldel with executors for working calculator (pattern Command))
-3. memento (consists of memento.js, creator.js, caretaker.js) used to saving calculations in histiry (pattenr Memento)
-4. switch (folder with files for working swith for change theme)
-- utils (consists of 3 filef for mathematical operations, keep variables and validation)
+1. app (consists of 3 files. It's: app.js, appController.js, appView.js )
+2. calculator (consists of calculator.js file and folder with executors for working calculator (pattern Command))
+3. memento (consists of memento.js, creator.js, caretaker.js) used to saving calculations in history (pattern Memento)
+4. switch (folder with files for working switch for change theme)
+- utils (consists of 3 files for mathematical operations, keep variables and validation)
 - test has files for test mathematical functions
 And index.js, index.html, style.css in src folder

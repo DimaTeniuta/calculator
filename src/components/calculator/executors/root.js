@@ -13,23 +13,15 @@ export class DegreeRootCommand {
 }
 
 export class SquareRootCommand {
-  constructor(value) {
-    this.value = value;
-  }
-
   execute(state) {
-    state.value = calculateSquareRoot(this.value);
+    state.value = calculateSquareRoot(+this.state.left);
     return state;
   }
 }
 
 export class CubeRootCommand {
-  constructor(value) {
-    this.value = value;
-  }
-
   execute(state) {
-    state.value = calculateCubeRoot(this.value);
+    state.value = calculateCubeRoot(+state.left);
     return state;
   }
 }
