@@ -16,10 +16,10 @@
 4. folder structure:
 - public has font and svg file for logo.
 - components
-1. app (consists of 3 files. It's: app.js, appController.js, appView.js )
-2. calculator (consists of calculator.js file and folder with executors for working calculator (pattern Command))
-3. memento (consists of memento.js, creator.js, caretaker.js) used to saving calculations in history (pattern Memento)
-4. switch (folder with files for working switch for change theme)
+1) app (consists of 3 files. It's: app.js, appController.js, appView.js )
+2) calculator (consists of calculator.js file and folder with executors for working calculator (pattern Command))
+3) memento (consists of memento.js, creator.js, caretaker.js) used to saving calculations in history (pattern Memento)
+4) switch (folder with files for working switch for change theme)
 - utils (consists of 3 files for mathematical operations, keep variables and validation)
 - test has files for test mathematical functions
 And index.js, index.html, style.css in src folder
