@@ -21,7 +21,7 @@ import {
 import { ResetCommand } from './executors/other';
 import { CubeRootCommand, DegreeRootCommand, SquareRootCommand } from './executors/root';
 import { CommaCommand, MathValueCommand, ValueCommand } from './executors/values';
-import { SquareCommand, CubeCommand, TenDegreeCommand } from './executors/degree';
+import { SquareCommand, CubeCommand, TenDegreeCommand, DegreeCommand } from './executors/degree';
 import Caretaker from '../memento/caretaker';
 import { creator } from '../memento/creator';
 
@@ -108,7 +108,7 @@ export class Calculator {
 
   calculateDegree() {
     if (this.state.left && this.state.right && this.state.mathValue === CONSTANTS_MATH_VALUE.DEGREE) {
-      this.executeCommand(new DegreeRootCommand());
+      this.executeCommand(new DegreeCommand());
       this.saveValues();
       this.executeCommand(new MathValueCommand(CONSTANTS_MATH_VALUE.DEGREE));
       return;
@@ -122,7 +122,7 @@ export class Calculator {
 
   calculateDegreeUseEqualCommand() {
     if (this.state.left && this.state.right && this.state.mathValue === CONSTANTS_MATH_VALUE.DEGREE) {
-      this.executeCommand(new DegreeRootCommand());
+      this.executeCommand(new DegreeCommand());
       this.saveValues();
     }
   }
