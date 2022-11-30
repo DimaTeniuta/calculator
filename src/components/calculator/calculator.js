@@ -85,7 +85,6 @@ export class Calculator {
   }
 
   calculate() {
-    console.log(this.state.mathValue);
     if (this.state.mathValue === CONSTANTS_MATH_VALUE.PLUS) {
       this.executeCommand(new AddCommand());
     } else if (this.state.mathValue === CONSTANTS_MATH_VALUE.MINUS) {
@@ -95,11 +94,10 @@ export class Calculator {
     } else if (this.state.mathValue === CONSTANTS_MATH_VALUE.DIVISION) {
       this.executeCommand(new DivideCommand());
     } else if (this.state.mathValue === CONSTANTS_MATH_VALUE.DEGREE) {
-      console.log(111);
-      this.calculateDegree();
+      this.calculateDegreeUseEqualCommand();
       return;
     } else if (this.state.mathValue === CONSTANTS_MATH_VALUE.ROOT) {
-      this.calculateDegreeRoot();
+      this.calculateDegreeRootUseEqualCommand();
       return;
     } else if (this.state.mathValue === CONSTANTS_MATH_VALUE.DIVISION_BY_X) {
       this.DivisionByXCommand();
@@ -112,6 +110,7 @@ export class Calculator {
     if (this.state.left && this.state.right && this.state.mathValue === CONSTANTS_MATH_VALUE.DEGREE) {
       this.executeCommand(new DegreeRootCommand());
       this.saveValues();
+      this.executeCommand(new MathValueCommand(CONSTANTS_MATH_VALUE.DEGREE));
       return;
     } else if (this.state.right && this.state.mathValue) {
       this.calculate();
@@ -121,10 +120,18 @@ export class Calculator {
     this.executeCommand(new MathValueCommand(CONSTANTS_MATH_VALUE.DEGREE));
   }
 
+  calculateDegreeUseEqualCommand() {
+    if (this.state.left && this.state.right && this.state.mathValue === CONSTANTS_MATH_VALUE.DEGREE) {
+      this.executeCommand(new DegreeRootCommand());
+      this.saveValues();
+    }
+  }
+
   calculateDegreeRoot() {
     if (this.state.left && this.state.right && this.state.mathValue === CONSTANTS_MATH_VALUE.ROOT) {
       this.executeCommand(new DegreeRootCommand());
       this.saveValues();
+      this.executeCommand(new MathValueCommand(CONSTANTS_MATH_VALUE.ROOT));
       return;
     } else if (this.state.mathValue && this.state.right) {
       this.calculate();
@@ -132,6 +139,13 @@ export class Calculator {
       return;
     }
     this.executeCommand(new MathValueCommand(CONSTANTS_MATH_VALUE.ROOT));
+  }
+
+  calculateDegreeRootUseEqualCommand() {
+    if (this.state.left && this.state.right && this.state.mathValue === CONSTANTS_MATH_VALUE.ROOT) {
+      this.executeCommand(new DegreeRootCommand());
+      this.saveValues();
+    }
   }
 
   calculateDivisionByX() {
