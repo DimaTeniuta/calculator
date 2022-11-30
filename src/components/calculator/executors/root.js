@@ -10,7 +10,7 @@ export class DegreeRootCommand {
       state.value = calculateCubeRoot(+state.left);
       return state;
     }
-    console.log(222);
+
     state.value = calculateRoot(+state.left, +state.right);
     return state;
   }
