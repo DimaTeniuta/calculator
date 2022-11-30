@@ -6,7 +6,7 @@
 
 ![image](https://user-images.githubusercontent.com/93836691/203250999-d3da985c-52e2-448b-b0ae-510dc0701db6.png)
 
-2. Deploy: https://custom-calculator-innowise.netlify.app/
+2. Deploy: https://calculator-innowise-lab.netlify.app/
 3. How to run the app: 
 - You should use command in the terminal ```git clone https://github.com/DimaTeniuta/calculator.git```
 - Next, use the ```cd calculator``` command to go to the calculator folder
