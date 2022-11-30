@@ -26,7 +26,17 @@ export const customMathAbs = (value) => (value < 0 ? -value : value);
 
 export const calculateSquareRoot = (value) => customMathAbs(value) ** (1 / 2);
 
-export const calculateCubeRoot = (value) => customMathAbs(value) ** (1 / 3);
+export const calculateCubeRoot = (value) => {
+  const root = (value, n) => (2 * n + value / (n * n)) / 3;
+  let tmp = value / 4;
+  let result = tmp;
+
+  do {
+    result = root(value, (tmp = result));
+  } while (customMathAbs(tmp - result) > Number.EPSILON);
+
+  return result;
+};
 
 export const calculateRoot = (value, n) => customMathAbs(value) ** (1 / n);
 

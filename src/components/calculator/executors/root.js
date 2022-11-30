@@ -1,20 +1,24 @@
 import { calculateCubeRoot, calculateRoot, calculateSquareRoot } from '../../../utils/mathFunctions';
 
 export class DegreeRootCommand {
-  constructor(value, degree) {
-    this.value = value;
-    this.degree = degree;
+  constructor() {
+    this.cube = 3;
   }
 
   execute(state) {
-    state.value = calculateRoot(this.value, this.degree);
+    if (+state.right === this.cube) {
+      state.value = calculateCubeRoot(+state.left);
+      return state;
+    }
+    console.log(222);
+    state.value = calculateRoot(+state.left, +state.right);
     return state;
   }
 }
 
 export class SquareRootCommand {
   execute(state) {
-    state.value = calculateSquareRoot(+this.state.left);
+    state.value = calculateSquareRoot(+state.left);
     return state;
   }
 }

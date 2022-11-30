@@ -85,6 +85,7 @@ export class Calculator {
   }
 
   calculate() {
+    console.log(this.state.mathValue);
     if (this.state.mathValue === CONSTANTS_MATH_VALUE.PLUS) {
       this.executeCommand(new AddCommand());
     } else if (this.state.mathValue === CONSTANTS_MATH_VALUE.MINUS) {
@@ -94,6 +95,7 @@ export class Calculator {
     } else if (this.state.mathValue === CONSTANTS_MATH_VALUE.DIVISION) {
       this.executeCommand(new DivideCommand());
     } else if (this.state.mathValue === CONSTANTS_MATH_VALUE.DEGREE) {
+      console.log(111);
       this.calculateDegree();
       return;
     } else if (this.state.mathValue === CONSTANTS_MATH_VALUE.ROOT) {

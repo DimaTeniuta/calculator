@@ -43,10 +43,6 @@ export class AddCommand {
 }
 
 export class SubtractCommand {
-  constructor(value) {
-    this.value = value;
-  }
-
   execute(state) {
     state.value = subtractFunc(+state.left, +state.right);
     return state;
