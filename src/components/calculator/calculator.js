@@ -48,7 +48,7 @@ export class Calculator {
   }
 
   setError() {
-    if (!validatorErr(+this.state.left)) {
+    if (!validatorErr(this.state.left)) {
       this.state.left = ERROR;
       moduleAppView.addDisabledClass();
     }

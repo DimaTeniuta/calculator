@@ -1,7 +1,7 @@
 import { COMMA, ERROR, INFINITY } from './variables';
 
 export const validatorErr = (value) => {
-  if (value === ERROR || value === +INFINITY || value === +`-${INFINITY}`) {
+  if (value === ERROR || +value === +INFINITY || +value === +`-${INFINITY}`) {
     return false;
   }
   return true;
