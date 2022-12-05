@@ -1,4 +1,4 @@
-1. Task: [Level 0: Custom Calculator](https://mail.google.com/chat/u/2/#chat/space/AAAAg3mEYtY)
+1. Task: [Level 0: Custom Calculator](https://drive.google.com/file/d/18I1PxOxZn2lwm__YeOtMNoWeiXygKwwN/view)
 ---
 ![image](https://user-images.githubusercontent.com/93836691/203250913-31d3ac87-64f1-409e-a9f7-38f7a0888082.png)
 
